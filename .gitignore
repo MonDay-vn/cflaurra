@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environments & Python
+.venv/
+**/.venv/
+venv/
+**/venv/
+__pycache__/
+**/__pycache__/
+
+# Visual Studio & IDEs
+.vs/
+**/.vs/
+.vscode/
+**/.vscode/
+
+# Binaries
+*.exe
+cloudflared.exe
+**/cloudflared.exe
+
+# Temporary files & chrome
+.temp_chrome/
+**/.temp_chrome/
+chrome_dump.html
+
+# Logs
+*.log
+
+# OS files
+Thumbs.db
+[Dd]esktop.ini
+.DS_Store
