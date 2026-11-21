@@ -1,51 +1,49 @@
 <!DOCTYPE html>
-<html lang="vi" class="h-full bg-slate-50 text-slate-800 antialiased">
+<html lang="vi" class="h-full dark bg-[#0e0f13] text-[#f4f4f6] antialiased">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>PHỐ XANH COFFEE • Hệ Thống Quản Lý F&B POS Đa Nền Tảng</title>
+  <title>Phố Xanh Coffee — POS & KDS</title>
   
   <!-- Google Fonts: Be Vietnam Pro & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-darkMode: 'class',
-theme: {
-  extend: {
-    fontFamily: {
-      sans: ['"Be Vietnam Pro"', 'sans-serif'],
-      mono: ['"JetBrains Mono"', 'monospace'],
-    },
-    colors: {
-      coffee: {
-        50: '#fdf8f6',
-        100: '#f2e8e5',
-        200: '#eaddd7',
-        500: '#b45309',
-        600: '#92400e',
-        700: '#78350f',
-        800: '#5c2b09',
-        900: '#451a03',
-      },
-      jade: {
-        500: '#10b981',
-        600: '#059669',
-        700: '#047857',
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            coffee: {
+              50: '#faf8f5',
+              100: '#f5f0e8',
+              200: '#ebe1d3',
+              500: '#92400e',
+              600: '#78350f',
+              700: '#5c2b09',
+              800: '#451a03',
+              900: '#2b1002',
+            },
+            accent: {
+              DEFAULT: '#92400e',
+              hover: '#78350f',
+            }
+          },
+          boxShadow: {
+            'subtle': '0 1px 2px 0 rgba(15, 23, 42, 0.04)',
+            'card': '0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04)',
+            'float': '0 10px 25px -5px rgba(15, 23, 42, 0.08)',
+          }
+        }
       }
-    },
-    boxShadow: {
-      'subtle': '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05)',
-      'card': '0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02)',
-      'card-hover': '0 10px 25px -3px rgba(180, 83, 9, 0.1), 0 4px 10px -2px rgba(180, 83, 9, 0.04)',
-      'float': '0 20px 35px -5px rgba(15, 23, 42, 0.12), 0 8px 16px -4px rgba(15, 23, 42, 0.06)',
-    }
-  }
-}
     }
   </script>
   
@@ -53,19 +51,386 @@ theme: {
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Custom Scrollbar for high-end SaaS feel */
+    /* ========================================================================= */
+    /* ARTISANAL SPECIALTY COFFEE ROASTERY POS - FIGMA & CANVA AWARD-WINNING THEME */
+    /* ========================================================================= */
+    :root {
+      --bg-app: #0e0f13;
+      --bg-sidebar: #13141a;
+      --bg-surface: #181921;
+      --bg-card: #1c1d26;
+      --bg-raised: #242531;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-focus: #f59e0b;
+      --text-main: #f4f4f6;
+      --text-sub: #9ca3af;
+      --accent-gold: #f59e0b;
+      --accent-roast: #92400e;
+    }
+
+    body {
+      background-color: #0e0f13 !important;
+      color: #f4f4f6 !important;
+    }
+
+    /* Custom Scrollbar */
     ::-webkit-scrollbar { width: 5px; height: 5px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
-    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    ::-webkit-scrollbar-thumb { background: #374151; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #4b5563; }
 
-    /* Vietnamese Dong Son Bronze Pattern Watermark */
+    /* Vietnamese Dong Son Bronze Pattern - Dark Roastery Aura */
     .bg-dongson-pattern {
-background-color: #fafbfd;
-background-image: 
-  radial-gradient(circle at 50% 50%, rgba(180, 83, 9, 0.03) 0%, transparent 60%),
-  radial-gradient(rgba(180, 83, 9, 0.06) 1px, transparent 0);
-background-size: 100% 100%, 24px 24px;
+      background-color: #0e0f13 !important;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.05) 0%, transparent 65%),
+        radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0) !important;
+      background-size: 100% 100%, 28px 28px !important;
+    }
+
+    /* Left Sidebar: Matte Dark Obsidian */
+    #sidebar {
+      background: #121319 !important;
+      border-right: 1px solid rgba(255, 255, 255, 0.07) !important;
+    }
+    #sidebar .border-b, #sidebar .border-t {
+      border-color: rgba(255, 255, 255, 0.07) !important;
+    }
+
+    /* Brand Box */
+    #sidebar-brand-box {
+      background: rgba(255, 255, 255, 0.03) !important;
+      border: 1px solid rgba(255, 255, 255, 0.06) !important;
+      border-radius: 14px !important;
+    }
+    #sidebar-brand-box:hover {
+      background: rgba(255, 255, 255, 0.06) !important;
+      border-color: rgba(245, 158, 11, 0.3) !important;
+    }
+    #sidebar-brand-box h1 {
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.02em !important;
+    }
+    #sidebar-brand-box p {
+      color: #f59e0b !important;
+    }
+
+    /* Session Card */
+    #sidebar-session-card {
+      background: #171821 !important;
+      border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    }
+    #sidebar-session-card span, #sidebar-session-card h3 {
+      color: #e4e4e7 !important;
+    }
+    #sidebar-session-card button {
+      background: #20212b !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      color: #d1d5db !important;
+    }
+    #sidebar-session-card button:hover {
+      background: #282a36 !important;
+      color: #ffffff !important;
+    }
+
+    /* Active Nav Tab */
+    .nav-tab {
+      color: #9ca3af !important;
+      transition: all 0.15s ease !important;
+    }
+    .nav-tab:not(.active-tab):hover {
+      background: rgba(255, 255, 255, 0.05) !important;
+      color: #ffffff !important;
+    }
+    .nav-tab.active-tab {
+      background: rgba(245, 158, 11, 0.12) !important;
+      border: 1px solid rgba(245, 158, 11, 0.3) !important;
+      color: #fef3c7 !important;
+      box-shadow: 0 0 16px rgba(245, 158, 11, 0.07) !important;
+    }
+    .nav-tab.active-tab::before {
+      background: #f59e0b !important;
+      width: 3px !important;
+      border-radius: 0 4px 4px 0 !important;
+      box-shadow: 0 0 10px #f59e0b !important;
+    }
+    .nav-tab.active-tab .nav-tab-icon {
+      background: #f59e0b !important;
+      color: #0e0f13 !important;
+    }
+    .nav-tab:not(.active-tab) .nav-tab-icon {
+      background: rgba(255, 255, 255, 0.06) !important;
+      color: #9ca3af !important;
+    }
+
+    /* Top Control Header */
+    #main-top-header {
+      background: #14151c !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+    }
+    #main-top-header #main-header-title {
+      color: #ffffff !important;
+    }
+    #main-top-header button {
+      background: #1c1d27 !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      color: #e4e4e7 !important;
+    }
+    #main-top-header button:hover {
+      background: #252633 !important;
+      color: #ffffff !important;
+    }
+    #live-clock {
+      color: #f59e0b !important;
+    }
+
+    /* Sub-nav & Table Tabs */
+    #tab-pane-pos > div:first-child {
+      background: #13141a !important;
+      border-color: rgba(255, 255, 255, 0.07) !important;
+    }
+    .pos-table-tab {
+      background: #191a23 !important;
+      color: #9ca3af !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 10px !important;
+    }
+    .pos-table-tab:hover {
+      background: #21222e !important;
+      color: #ffffff !important;
+    }
+    .pos-table-tab.pos-table-tab-active {
+      background: #242533 !important;
+      color: #fef3c7 !important;
+      border: 1px solid rgba(245, 158, 11, 0.5) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* Floor Plan Table Cards */
+    .floor-table-card {
+      background: #171822 !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .floor-table-card:hover {
+      border-color: rgba(245, 158, 11, 0.5) !important;
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 15px rgba(245, 158, 11, 0.1) !important;
+    }
+    .floor-table-card h3 {
+      color: #ffffff !important;
+      font-weight: 600 !important;
+    }
+    .floor-table-card .border-t {
+      border-color: rgba(255, 255, 255, 0.06) !important;
+    }
+    .floor-table-card span {
+      color: #d1d5db !important;
+    }
+
+    /* Menu Section & Item Cards */
+    #pos-menu-section {
+      background: #121319 !important;
+      border-color: rgba(255, 255, 255, 0.07) !important;
+    }
+    #pos-menu-section > div {
+      background: transparent !important;
+    }
+    #pos-menu-section .border-b {
+      border-color: rgba(255, 255, 255, 0.07) !important;
+    }
+    #menu-search-input {
+      background: #181923 !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      color: #ffffff !important;
+      border-radius: 12px !important;
+    }
+    #menu-search-input:focus {
+      border-color: #f59e0b !important;
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.25) !important;
+    }
+
+    .menu-item-card {
+      background: #181923 !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .menu-item-card:hover {
+      border-color: rgba(245, 158, 11, 0.5) !important;
+      transform: translateY(-2px) !important;
+    }
+    .menu-item-card h4 {
+      color: #ffffff !important;
+      font-weight: 600 !important;
+    }
+    .menu-item-card span.font-mono {
+      color: #f59e0b !important;
+    }
+    .menu-item-card .border-t {
+      border-color: rgba(255, 255, 255, 0.07) !important;
+    }
+
+    /* Cart Drawer / Digital Ticket */
+    #pos-cart-drawer {
+      background: #15161f !important;
+      border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+      color: #f4f4f6 !important;
+    }
+    #pos-cart-drawer h3, #pos-cart-drawer h4 {
+      color: #ffffff !important;
+    }
+    #pos-cart-drawer .border-b, #pos-cart-drawer .border-t {
+      border-color: rgba(255, 255, 255, 0.07) !important;
+    }
+    #cart-items-list > div {
+      background: #191a24 !important;
+      border: 1px solid rgba(255, 255, 255, 0.06) !important;
+      border-radius: 12px !important;
+      color: #ffffff !important;
+    }
+    #cart-items-list span {
+      color: #e4e4e7 !important;
+    }
+
+    /* KDS Cards */
+    .kds-card {
+      background: #161722 !important;
+      border: 1px solid rgba(255, 255, 255, 0.09) !important;
+      border-radius: 18px !important;
+      color: #f4f4f6 !important;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
+    }
+    .kds-card h3 {
+      color: #ffffff !important;
+    }
+    .kds-card .p-2 {
+      background: #1b1c29 !important;
+      border-color: rgba(255, 255, 255, 0.07) !important;
+    }
+    .kds-card .border-b, .kds-card .border-t {
+      border-color: rgba(255, 255, 255, 0.07) !important;
+    }
+
+    /* ========================================================================= */
+    /* UNIVERSAL ARTISANAL ROASTERY DARK THEME OVERRIDES                         */
+    /* ========================================================================= */
+    .bg-slate-50, .bg-slate-100, .bg-slate-200, .bg-gray-50, .bg-gray-100, .bg-zinc-50, .bg-stone-50 {
+      background-color: #0c0d12 !important;
+      color: #f3f4f6 !important;
+    }
+    
+    .bg-white:not(.receipt-paper-roll):not(#receipt-paper):not(.receipt-paper):not(#receipt-text-preview) {
+      background-color: #14151e !important;
+      color: #f3f4f6 !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .border-slate-100, .border-slate-200, .border-slate-300, .border-gray-200, .border-gray-300 {
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .text-slate-900, .text-slate-800, .text-slate-700, .text-gray-900, .text-gray-800 {
+      color: #f9fafb !important;
+    }
+    .text-slate-600, .text-slate-500, .text-slate-400, .text-gray-600, .text-gray-500 {
+      color: #9ca3af !important;
+    }
+
+    /* Workspace panels & other views */
+    .flex-1.bg-slate-100 {
+      background: #0c0d12 !important;
+    }
+    #tab-pane-pos, #tab-pane-kds, #tab-pane-recipes, #tab-pane-inventory, #tab-pane-staff, #tab-pane-shift, #tab-pane-schedule, #tab-pane-reports, #tab-pane-printer {
+      background: #0c0d12 !important;
+      color: #f4f4f6 !important;
+    }
+    #tab-pane-recipes .bg-white, #tab-pane-inventory .bg-white, #tab-pane-staff .bg-white, #tab-pane-shift .bg-white, #tab-pane-reports .bg-white, #tab-pane-printer .bg-white {
+      background: #14151e !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      color: #f4f4f6 !important;
+    }
+    #tab-pane-recipes h2, #tab-pane-recipes h3, #tab-pane-inventory h2, #tab-pane-inventory h3, #tab-pane-staff h2, #tab-pane-staff h3, #tab-pane-shift h2, #tab-pane-shift h3, #tab-pane-reports h2, #tab-pane-reports h3, #tab-pane-printer h2, #tab-pane-printer h3 {
+      color: #ffffff !important;
+    }
+
+    /* Inputs, Selects, Textareas across all views */
+    input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+      background-color: #191a25 !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #6b7280 !important;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #f59e0b !important;
+      box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.25) !important;
+    }
+
+    /* Tables across all tabs */
+    table th {
+      background-color: #12131b !important;
+      color: #9ca3af !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      font-weight: 700 !important;
+    }
+    table td {
+      border-color: rgba(255, 255, 255, 0.05) !important;
+      color: #e5e7eb !important;
+    }
+    table tr:hover td {
+      background-color: rgba(255, 255, 255, 0.03) !important;
+    }
+
+    /* Modals & Dialogs */
+    .modal-backdrop, [id^="modal-"] > div:first-child {
+      background-color: rgba(0, 0, 0, 0.8) !important;
+      backdrop-filter: blur(10px) !important;
+    }
+    [id^="modal-"] .bg-white {
+      background: #14151e !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      color: #f4f4f6 !important;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8) !important;
+    }
+    [id^="modal-"] h2, [id^="modal-"] h3, [id^="modal-"] h4 {
+      color: #ffffff !important;
+    }
+
+    /* Photorealistic 80mm ESC/POS Thermal Receipt Paper */
+    .receipt-paper-roll {
+      background: #faf8f5 !important;
+      color: #1c1917 !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6) !important;
+      border-radius: 4px !important;
+      position: relative;
+    }
+    .receipt-paper-roll pre {
+      color: #1c1917 !important;
+    }
+    .receipt-tear-top {
+      position: absolute;
+      top: -5px;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: radial-gradient(circle, transparent, transparent 50%, #faf8f5 50%, #faf8f5 100%);
+      background-size: 8px 8px;
+    }
+    .receipt-tear-bottom {
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: radial-gradient(circle, transparent, transparent 50%, #faf8f5 50%, #faf8f5 100%);
+      background-size: 8px 8px;
     }
 
     /* ========================================================================= */
@@ -248,69 +613,52 @@ animation: drawerSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     }
 
     /* ========================================================================= */
-    /* HIỆU ỨNG NỔI LÊN (ELEVATED 3D POP-OUT) KHI CHỌN TAB */
+    /* CALM, PRECISE TABS & KEYCAP NAVIGATION                                   */
     /* ========================================================================= */
     .nav-tab {
       position: relative;
       background: transparent;
-      border: 1.5px solid transparent;
-      color: #475569;
-      transform: translate3d(0, 0, 0);
-      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-                  box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-                  background 0.25s ease,
-                  border-color 0.25s ease,
-                  color 0.25s ease,
-                  padding 0.52s cubic-bezier(0.22, 1, 0.36, 1),
-                  gap 0.52s cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: transform, box-shadow;
+      border: 1px solid transparent;
+      color: #64748b;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
 
     .nav-tab:not(.active-tab):hover {
-      background: #f8fafc;
+      background: #f1f5f9;
       color: #0f172a;
-      border-color: #f1f5f9;
-      transform: translate3d(2px, -0.5px, 0);
-      box-shadow: 0 3px 8px -1px rgba(0, 0, 0, 0.05);
     }
 
-    /* Tab đang chọn: Nổi khối 3D rõ nét, nền sáng ấm, đổ bóng màu hổ phách sang trọng */
+    /* Tab đang chọn: Nền nổi nhẹ, viền hairline, vạch chỉ báo tối giản */
     .nav-tab.active-tab {
-      background: linear-gradient(135deg, #ffffff 0%, #fffbeb 50%, #fef3c7 100%) !important;
-      border: 1.5px solid #f59e0b !important;
-      color: #78350f !important;
-      font-weight: 800 !important;
-      transform: translate3d(3px, -2px, 0) scale(1.02);
-      box-shadow: 0 10px 22px -3px rgba(217, 119, 6, 0.28),
-                  0 4px 8px -2px rgba(217, 119, 6, 0.12),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+      background: #ffffff !important;
+      border: 1px solid #e2e8f0 !important;
+      color: #0f172a !important;
+      font-weight: 500 !important;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04) !important;
       z-index: 10;
     }
 
-    /* Vạch chỉ báo hổ phách phát sáng bên mép trái của tab đang chọn */
+    /* Vạch chỉ báo nâu espresso tinh tế bên mép trái của tab đang chọn */
     .nav-tab.active-tab::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 15%;
-      bottom: 15%;
-      width: 4px;
-      background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
-      border-radius: 0 4px 4px 0;
-      box-shadow: 0 0 10px rgba(245, 158, 11, 0.85);
+      top: 20%;
+      bottom: 20%;
+      width: 3px;
+      background: #92400e;
+      border-radius: 0 2px 2px 0;
     }
 
-    /* Icon của tab được chọn nổi bật với hiệu ứng phóng nhẹ và đổ bóng */
     .nav-tab-icon {
-      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-                  box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: color 0.15s ease, background-color 0.15s ease;
     }
 
     .nav-tab.active-tab .nav-tab-icon {
-      background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;
-      color: #ffffff !important;
-      transform: scale(1.08);
-      box-shadow: 0 4px 12px rgba(180, 83, 9, 0.4) !important;
+      background: #fef3c7 !important;
+      color: #92400e !important;
+      box-shadow: none !important;
+      transform: none !important;
     }
 
     /* Khi sidebar thu gọn */
@@ -321,42 +669,41 @@ animation: drawerSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
       gap: 0 !important;
     }
     #sidebar.sidebar-collapsed .nav-tab.active-tab {
-      transform: scale(1.08) !important;
-      box-shadow: 0 8px 18px -2px rgba(217, 119, 6, 0.32) !important;
+      transform: none !important;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05) !important;
     }
     #sidebar.sidebar-collapsed .nav-tab.active-tab::before {
       display: none;
     }
 
-    /* Hiệu ứng nổi bật cho Tab Bàn POS ngang */
+    /* Tab Bàn POS ngang */
     .pos-table-tab {
-      transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
       position: relative;
     }
     .pos-table-tab:not(.pos-table-tab-active):hover {
-      transform: translateY(-1.5px);
-      box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.08);
+      background: #1f202c !important;
+      color: #ffffff !important;
     }
     .pos-table-tab.pos-table-tab-active {
-      background: linear-gradient(135deg, #ffffff 0%, #fffbeb 100%) !important;
-      border: 2px solid #d97706 !important;
-      color: #78350f !important;
-      font-weight: 800 !important;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px -2px rgba(217, 119, 6, 0.25),
-                  0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+      background: #252636 !important;
+      border: 1px solid rgba(245, 158, 11, 0.5) !important;
+      color: #fef3c7 !important;
+      font-weight: 700 !important;
+      box-shadow: 0 0 14px rgba(245, 158, 11, 0.15) !important;
       z-index: 10;
     }
 
-    /* Nút lọc khu vực bàn nổi lên khi chọn */
+    /* Nút lọc khu vực bàn */
     .floor-area-btn {
-      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
     .floor-area-btn.active-area-btn {
-      background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;
-      color: #ffffff !important;
-      transform: translate3d(0, -2px, 0);
-      box-shadow: 0 6px 14px -2px rgba(217, 119, 6, 0.35) !important;
+      background: #f59e0b !important;
+      color: #0c0d12 !important;
+      border-color: #f59e0b !important;
+      font-weight: 800 !important;
+      box-shadow: 0 0 14px rgba(245, 158, 11, 0.3) !important;
     }
 
     /* Khung session ca trực / nhân viên: Chuyển đổi mượt mà */
@@ -459,12 +806,7 @@ animation: drawerSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     }
 
     #sidebar-logo-container {
-      transform-origin: 50% 50%;
-      transition: transform 0.25s cubic-bezier(0.25, 1, 0.35, 1), box-shadow 0.25s ease;
-    }
-    #sidebar-brand-box:hover #sidebar-logo-container {
-      transform: scale(1.06);
-      box-shadow: 0 8px 18px -2px rgba(217, 119, 6, 0.35);
+      transition: border-color 0.15s ease;
     }
 
     #sidebar-logo-icon {
@@ -618,16 +960,16 @@ animation: drawerSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   <!-- Khung bọc đổ bóng tĩnh: giữ bóng ổn định, không bị chớp xoay đèn hải đăng -->
   <div id="sidebar-logo-container" class="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl shadow-md shadow-amber-900/20 shrink-0 group-hover:shadow-amber-600/30 transition-shadow">
     <!-- Logo xoay siêu mượt chuẩn 60/120fps trên GPU -->
-    <div id="sidebar-logo-icon" class="w-full h-full rounded-2xl bg-gradient-to-tr from-amber-700 via-amber-600 to-amber-500 flex items-center justify-center text-white select-none text-lg sm:text-xl">
-      <span class="inline-block pointer-events-none">☕</span>
+    <div id="sidebar-logo-icon" class="w-full h-full rounded-xl bg-amber-900 text-amber-50 flex items-center justify-center select-none">
+      <i data-lucide="coffee" class="w-5 h-5 text-amber-100"></i>
     </div>
   </div>
   <div class="whitespace-nowrap transition-all duration-200 sidebar-label overflow-hidden">
-    <h1 class="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight leading-tight flex items-center gap-1.5 group-hover:text-amber-800 transition-colors">
-      PHỐ XANH COFFEE
+    <h1 class="text-xs sm:text-sm font-semibold text-slate-900 tracking-tight leading-tight flex items-center gap-1.5">
+      Phố Xanh Coffee
     </h1>
-    <p class="text-[9.5px] text-amber-700 font-bold uppercase tracking-wider font-mono">
-      ★ Tinh Hoa Cà Phê Việt
+    <p class="text-[11px] text-slate-500 font-normal">
+      Quầy Bar & POS
     </p>
   </div>
 </button>
@@ -636,52 +978,52 @@ animation: drawerSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     <!-- ========================================================================= -->
     <!-- SESSION & SYSTEM HUB: THÔNG TIN NHÂN VIÊN, NÚT ĐĂNG XUẤT, ONLINE/OFFLINE -->
     <!-- ========================================================================= -->
-    <div id="sidebar-session-card" class="p-2 sm:p-2.5 mx-2 my-1.5 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-2xs shrink-0 transition-all">
+    <div id="sidebar-session-card" class="p-2 sm:p-2.5 mx-2 my-1.5 rounded-xl bg-slate-50 border border-slate-200/80 shrink-0 transition-all">
       <!-- Khi Sidebar mở rộng -->
       <div id="session-card-expanded" class="space-y-2">
         <!-- Hàng 1: User avatar, Tên & Vai trò -->
         <div class="flex items-center gap-2 min-w-0">
-          <div id="sidebar-role-badge-icon" class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-700 via-amber-600 to-amber-500 text-white flex items-center justify-center text-sm font-bold shrink-0 shadow-xs">
-            👨‍💼
+          <div id="sidebar-role-badge-icon" class="w-8 h-8 rounded-lg bg-amber-100 text-amber-900 border border-amber-200 flex items-center justify-center shrink-0">
+            <i data-lucide="user" class="w-4 h-4 text-amber-900"></i>
           </div>
           <div class="min-w-0 flex-1">
-            <span id="current-user-role-badge" class="text-[10px] font-black uppercase tracking-wider text-amber-900 bg-amber-100 border border-amber-200/90 px-2 py-0.5 rounded-md inline-flex items-center leading-none shadow-2xs">
-              Chủ Quán (Owner)
+            <span id="current-user-role-badge" class="text-[11px] font-medium text-amber-900 bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded inline-flex items-center leading-none">
+              Quản lý ca
             </span>
-            <span id="current-user-name" class="text-xs font-black text-slate-900 block truncate leading-snug mt-1">
+            <span id="current-user-name" class="text-xs font-medium text-slate-900 block truncate leading-snug mt-0.5">
               Nguyễn Hoàng Nam
             </span>
           </div>
         </div>
 
         <!-- Hàng 2: Trạng thái Online, Nút Đăng Xuất & Chuông -->
-        <div class="pt-1.5 border-t border-slate-200/70 flex items-center justify-between gap-1.5">
+        <div class="pt-1.5 border-t border-slate-200/60 flex items-center justify-between gap-1.5">
           <!-- Trạng thái Online -->
-          <div class="flex items-center gap-1.5 px-2 py-1 bg-white rounded-xl border border-slate-200 text-slate-700 shadow-2xs text-[10.5px] font-bold">
-            <span id="network-status-dot" class="w-2 h-2 rounded-full bg-emerald-500 shadow-xs animate-pulse shrink-0"></span>
-            <span id="network-status-text" class="text-[10px] font-bold text-emerald-700">Online</span>
+          <div class="flex items-center gap-1.5 px-2 py-1 bg-white rounded-lg border border-slate-200 text-slate-700 text-xs">
+            <span id="network-status-dot" class="w-2 h-2 rounded-full bg-emerald-600 shrink-0"></span>
+            <span id="network-status-text" class="text-xs font-medium text-slate-700">Online</span>
           </div>
 
           <!-- Nút Đăng Xuất (Logout) -->
-          <button id="btn-logout" type="button" onclick="window.handleLogout()" class="flex-1 flex items-center justify-center gap-1 py-1 px-2 rounded-xl bg-white hover:bg-rose-50 hover:border-rose-300 hover:text-rose-700 text-slate-600 border border-slate-200 transition shadow-2xs text-[10.5px] font-bold cursor-pointer" title="Đăng xuất khỏi hệ thống">
-            <i data-lucide="log-out" class="w-3 h-3 text-slate-400"></i>
-            <span>Đăng Xuất</span>
+          <button id="btn-logout" type="button" onclick="window.handleLogout()" class="flex-1 flex items-center justify-center gap-1 py-1 px-2 rounded-lg bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 transition text-xs font-medium cursor-pointer" title="Đăng xuất khỏi hệ thống">
+            <i data-lucide="log-out" class="w-3.5 h-3.5 text-slate-500"></i>
+            <span>Đăng xuất</span>
           </button>
 
           <!-- Chuông thông báo -->
-          <button id="btn-stock-alert" type="button" class="relative p-1 px-1.5 rounded-xl bg-white hover:bg-amber-50 text-slate-700 hover:text-amber-700 border border-slate-200 hover:border-amber-300 transition shadow-2xs flex items-center cursor-pointer" title="Xem danh sách cảnh báo tồn kho & thông báo">
-            <i data-lucide="bell" class="w-3.5 h-3.5 text-amber-600"></i>
-            <span id="badge-stock-count" class="hidden px-1 py-0.2 rounded-full text-[9px] font-black bg-rose-600 text-white font-mono leading-none">0</span>
+          <button id="btn-stock-alert" type="button" class="relative p-1 px-1.5 rounded-lg bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 transition flex items-center cursor-pointer" title="Cảnh báo tồn kho">
+            <i data-lucide="bell" class="w-3.5 h-3.5 text-slate-600"></i>
+            <span id="badge-stock-count" class="hidden px-1 py-0.2 rounded-full text-[10px] font-medium bg-rose-600 text-white font-mono leading-none">0</span>
           </button>
         </div>
       </div>
 
       <!-- Khi Sidebar thu gọn: Stack icon dọc -->
       <div id="session-card-collapsed" class="hidden flex flex-col items-center gap-2 py-0.5">
-        <div id="sidebar-role-mini-icon" class="w-8 h-8 rounded-xl bg-amber-100 text-amber-900 border border-amber-300 flex items-center justify-center text-xs font-bold shadow-2xs">
-          👨‍💼
+        <div id="sidebar-role-mini-icon" class="w-8 h-8 rounded-lg bg-amber-100 text-amber-900 border border-amber-200 flex items-center justify-center text-xs">
+          <i data-lucide="user" class="w-4 h-4 text-amber-900"></i>
         </div>
-        <button id="btn-collapsed-logout" type="button" onclick="window.handleLogout()" class="w-8 h-8 rounded-xl bg-white hover:bg-rose-50 text-slate-500 hover:text-rose-600 border border-slate-200 flex items-center justify-center transition shadow-2xs cursor-pointer" title="Đăng Xuất">
+        <button id="btn-collapsed-logout" type="button" onclick="window.handleLogout()" class="w-8 h-8 rounded-lg bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 flex items-center justify-center transition cursor-pointer" title="Đăng xuất">
           <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
         </button>
       </div>
@@ -689,105 +1031,105 @@ animation: drawerSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 
     <!-- MAIN NAVIGATION ITEMS (CUỘN ĐỘC LẬP BẰNG FLEX-1, KHÔNG CHÈM LÊN NÚT PHÂN QUYỀN) -->
     <nav class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden p-1.5 space-y-0.5 custom-scrollbar">
-<!-- 1. Bán hàng & Sơ đồ bàn (POS) - Thu Ngân & Quản Lý -->
-<a href="/pos" data-tab="pos" onclick="window.navigateToTab('pos', true); return false;" title="Bán Hàng (POS)" class="nav-tab active-tab block w-full px-2.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-2.5 cursor-pointer">
-  <div class="nav-tab-icon w-7 h-7 rounded-lg bg-amber-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+<!-- 1. Bán hàng & Sơ đồ bàn (POS) -->
+<a href="/pos" data-tab="pos" onclick="window.navigateToTab('pos', true); return false;" title="Bán hàng (POS)" class="nav-tab active-tab block w-full px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2.5 cursor-pointer">
+  <div class="nav-tab-icon w-7 h-7 rounded-md bg-amber-100 text-amber-900 flex items-center justify-center shrink-0">
     <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
   </div>
   <div class="text-left sidebar-label whitespace-nowrap overflow-hidden">
-    <span class="block text-xs font-bold leading-tight">Bán Hàng (POS)</span>
-    <span class="block text-[9.5px] font-normal text-amber-700 leading-tight">Sơ đồ bàn & Đa nhiệm</span>
+    <span class="block text-xs font-medium leading-tight">Bán hàng (POS)</span>
+    <span class="block text-[11px] font-normal text-slate-500 leading-tight">Sơ đồ bàn & Đa nhiệm</span>
   </div>
 </a>
 
-<!-- 2. Bếp & Pha chế KDS - Pha Chế & Quản Lý -->
-<a href="/kds" data-tab="kds" onclick="window.navigateToTab('kds', true); return false;" title="Bếp / Pha Chế (KDS)" class="nav-tab block w-full px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-2.5 text-slate-600 hover:bg-slate-50 hover:text-slate-900 border border-transparent cursor-pointer">
-  <div class="nav-tab-icon w-7 h-7 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
+<!-- 2. Bếp & Pha chế KDS -->
+<a href="/kds" data-tab="kds" onclick="window.navigateToTab('kds', true); return false;" title="Bếp / Pha chế (KDS)" class="nav-tab block w-full px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-transparent cursor-pointer">
+  <div class="nav-tab-icon w-7 h-7 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
     <i data-lucide="flame" class="w-3.5 h-3.5"></i>
   </div>
   <div class="text-left sidebar-label whitespace-nowrap flex-1 flex items-center justify-between overflow-hidden">
     <div>
-      <span class="block text-xs font-bold leading-tight">Bếp / Pha Chế</span>
-      <span class="block text-[9.5px] font-normal text-slate-400 leading-tight">Màn hình KDS Real-time</span>
+      <span class="block text-xs font-medium leading-tight">Bếp / Pha chế</span>
+      <span class="block text-[11px] font-normal text-slate-500 leading-tight">Màn hình KDS Real-time</span>
     </div>
-    <span id="kds-pending-badge" class="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-amber-600 text-white font-mono">0</span>
+    <span id="kds-pending-badge" class="px-1.5 py-0.2 rounded-full text-[10px] font-medium bg-amber-800 text-white font-mono">0</span>
   </div>
 </a>
 
 <!-- 3. Quản lý Thực đơn & Công thức pha chế -->
-<a href="/recipes" data-tab="recipes" onclick="window.navigateToTab('recipes', true); return false;" title="Thực Đơn & Công Thức" class="nav-tab block w-full px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-2.5 text-slate-600 hover:bg-slate-50 hover:text-slate-900 border border-transparent cursor-pointer">
-  <div class="nav-tab-icon w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
+<a href="/recipes" data-tab="recipes" onclick="window.navigateToTab('recipes', true); return false;" title="Thực đơn & Công thức" class="nav-tab block w-full px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-transparent cursor-pointer">
+  <div class="nav-tab-icon w-7 h-7 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
     <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
   </div>
   <div class="text-left sidebar-label whitespace-nowrap overflow-hidden">
-    <span class="block text-xs font-bold leading-tight">Thực Đơn & Công Thức</span>
-    <span class="block text-[9.5px] font-normal text-slate-400 leading-tight">Món & Định mức nguyên liệu</span>
+    <span class="block text-xs font-medium leading-tight">Thực đơn & Công thức</span>
+    <span class="block text-[11px] font-normal text-slate-500 leading-tight">Món & Định mức pha</span>
   </div>
 </a>
 
 <!-- 4. Quản lý Kho nguyên liệu -->
-<a href="/inventory" data-tab="inventory" onclick="window.navigateToTab('inventory', true); return false;" title="Kho Nguyên Liệu" class="nav-tab block w-full px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-2.5 text-slate-600 hover:bg-slate-50 hover:text-slate-900 border border-transparent cursor-pointer">
-  <div class="nav-tab-icon w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+<a href="/inventory" data-tab="inventory" onclick="window.navigateToTab('inventory', true); return false;" title="Kho nguyên liệu" class="nav-tab block w-full px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-transparent cursor-pointer">
+  <div class="nav-tab-icon w-7 h-7 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
     <i data-lucide="boxes" class="w-3.5 h-3.5"></i>
   </div>
   <div class="text-left sidebar-label whitespace-nowrap overflow-hidden">
-    <span class="block text-xs font-bold leading-tight">Kho Nguyên Liệu</span>
-    <span class="block text-[9.5px] font-normal text-slate-400 leading-tight">Tồn kho & Hao hụt loss</span>
+    <span class="block text-xs font-medium leading-tight">Kho nguyên liệu</span>
+    <span class="block text-[11px] font-normal text-slate-500 leading-tight">Tồn kho & Hao hụt</span>
   </div>
 </a>
 
 <!-- 5. Quản lý Nhân sự & Ca trực -->
-<a href="/staff" data-tab="staff" onclick="window.navigateToTab('staff', true); return false;" title="Nhân Sự & Phân Quyền" class="nav-tab block w-full px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-2.5 text-slate-600 hover:bg-slate-50 hover:text-slate-900 border border-transparent cursor-pointer">
-  <div class="nav-tab-icon w-7 h-7 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center shrink-0">
+<a href="/staff" data-tab="staff" onclick="window.navigateToTab('staff', true); return false;" title="Nhân sự & Phân quyền" class="nav-tab block w-full px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-transparent cursor-pointer">
+  <div class="nav-tab-icon w-7 h-7 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
     <i data-lucide="users" class="w-3.5 h-3.5"></i>
   </div>
   <div class="text-left sidebar-label whitespace-nowrap overflow-hidden">
-    <span class="block text-xs font-bold leading-tight">Nhân Sự & Ca Trực</span>
-    <span class="block text-[9.5px] font-normal text-slate-400 leading-tight">Hồ sơ & Bảng lương</span>
+    <span class="block text-xs font-medium leading-tight">Nhân sự & Phân quyền</span>
+    <span class="block text-[11px] font-normal text-slate-500 leading-tight">Hồ sơ & Chấm công</span>
   </div>
 </a>
 
-<!-- 6. Chốt ca & Két tiền mặt - Thu Ngân & Quản Lý -->
-<a href="/shift" data-tab="shift" onclick="window.navigateToTab('shift', true); return false;" title="Chốt Ca & Két Tiền" class="nav-tab block w-full px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-2.5 text-slate-600 hover:bg-slate-50 hover:text-slate-900 border border-transparent cursor-pointer">
-  <div class="nav-tab-icon w-7 h-7 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+<!-- 6. Chốt ca & Két tiền mặt -->
+<a href="/shift" data-tab="shift" onclick="window.navigateToTab('shift', true); return false;" title="Chốt ca & Két tiền" class="nav-tab block w-full px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-transparent cursor-pointer">
+  <div class="nav-tab-icon w-7 h-7 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
     <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
   </div>
   <div class="text-left sidebar-label whitespace-nowrap overflow-hidden">
-    <span class="block text-xs font-bold leading-tight">Chốt Ca & Két Tiền</span>
-    <span class="block text-[9.5px] font-normal text-slate-400 leading-tight">Kiểm đếm bàn giao ca</span>
+    <span class="block text-xs font-medium leading-tight">Chốt ca & Két tiền</span>
+    <span class="block text-[11px] font-normal text-slate-500 leading-tight">Kiểm đếm bàn giao ca</span>
   </div>
 </a>
 
-<!-- 6b. Lịch Phân Ca - Quản Lý & Nhân Viên Theo Dõi -->
-<a href="/schedule" data-tab="schedule" onclick="window.navigateToTab('schedule', true); return false;" title="Lịch Phân Ca Làm Việc" class="nav-tab block w-full px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-2.5 text-slate-600 hover:bg-slate-50 hover:text-slate-900 border border-transparent cursor-pointer">
-  <div class="nav-tab-icon w-7 h-7 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center shrink-0">
+<!-- 6b. Lịch Phân Ca -->
+<a href="/schedule" data-tab="schedule" onclick="window.navigateToTab('schedule', true); return false;" title="Lịch phân ca làm việc" class="nav-tab block w-full px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-transparent cursor-pointer">
+  <div class="nav-tab-icon w-7 h-7 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
     <i data-lucide="calendar-days" class="w-3.5 h-3.5"></i>
   </div>
   <div class="text-left sidebar-label whitespace-nowrap overflow-hidden">
-    <span class="block text-xs font-bold leading-tight">Lịch Phân Ca</span>
-    <span class="block text-[9.5px] font-normal text-slate-400 leading-tight">Lịch làm việc trong tuần</span>
+    <span class="block text-xs font-medium leading-tight">Lịch phân ca</span>
+    <span class="block text-[11px] font-normal text-slate-500 leading-tight">Lịch làm việc tuần</span>
   </div>
 </a>
 
-<!-- 7. Báo cáo tài chính Lãi - Lỗ P&L -->
-<a href="/reports" data-tab="reports" onclick="window.navigateToTab('reports', true); return false;" title="Báo Cáo Lãi - Lỗ" class="nav-tab block w-full px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-2.5 text-slate-600 hover:bg-slate-50 hover:text-slate-900 border border-transparent cursor-pointer">
-  <div class="nav-tab-icon w-7 h-7 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center shrink-0">
+<!-- 7. Báo cáo tài chính Lãi - Lỗ -->
+<a href="/reports" data-tab="reports" onclick="window.navigateToTab('reports', true); return false;" title="Báo cáo lãi - lỗ" class="nav-tab block w-full px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-transparent cursor-pointer">
+  <div class="nav-tab-icon w-7 h-7 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
     <i data-lucide="pie-chart" class="w-3.5 h-3.5"></i>
   </div>
   <div class="text-left sidebar-label whitespace-nowrap overflow-hidden">
-    <span class="block text-xs font-bold leading-tight">Báo Cáo Lãi - Lỗ</span>
-    <span class="block text-[9.5px] font-normal text-slate-400 leading-tight">P&L Doanh thu & Chi phí</span>
+    <span class="block text-xs font-medium leading-tight">Báo cáo lãi - lỗ</span>
+    <span class="block text-[11px] font-normal text-slate-500 leading-tight">Doanh thu & Chi phí</span>
   </div>
 </a>
 
-<!-- 8. In hóa đơn ESC/POS - Thu Ngân & Quản Lý -->
-<a href="/printer" data-tab="printer" onclick="window.navigateToTab('printer', true); return false;" title="Máy In Hóa Đơn" class="nav-tab block w-full px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-2.5 text-slate-600 hover:bg-slate-50 hover:text-slate-900 border border-transparent cursor-pointer">
-  <div class="nav-tab-icon w-7 h-7 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
+<!-- 8. In hóa đơn ESC/POS -->
+<a href="/printer" data-tab="printer" onclick="window.navigateToTab('printer', true); return false;" title="Máy in hóa đơn" class="nav-tab block w-full px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-transparent cursor-pointer">
+  <div class="nav-tab-icon w-7 h-7 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
     <i data-lucide="printer" class="w-3.5 h-3.5"></i>
   </div>
   <div class="text-left sidebar-label whitespace-nowrap overflow-hidden">
-    <span class="block text-xs font-bold leading-tight">Máy In Hóa Đơn</span>
-    <span class="block text-[9.5px] font-normal text-slate-400 leading-tight">In bill K80 & Cắt giấy</span>
+    <span class="block text-xs font-medium leading-tight">Máy in hóa đơn</span>
+    <span class="block text-[11px] font-normal text-slate-500 leading-tight">In bill K80 & Cắt giấy</span>
   </div>
 </a>
     </nav>
@@ -811,13 +1153,13 @@ animation: drawerSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   </button>
 
   <div class="flex items-center gap-2 min-w-0">
-    <span class="w-2.5 h-2.5 rounded-full bg-amber-500 shrink-0"></span>
-    <h2 id="main-header-title" class="text-xs sm:text-sm font-extrabold text-slate-900 uppercase tracking-wide truncate">
-      BÁN HÀNG (POS)
+    <span class="w-2 h-2 rounded-full bg-amber-700 shrink-0"></span>
+    <h2 id="main-header-title" class="text-xs sm:text-sm font-semibold text-slate-900 tracking-tight truncate">
+      Bán hàng (POS)
     </h2>
-    <span class="text-slate-300 hidden md:inline">|</span>
-    <span class="text-xs text-slate-400 font-medium hidden md:inline truncate">
-      Phố Xanh Coffee • Buôn Ma Thuột
+    <span class="text-slate-300 hidden md:inline">/</span>
+    <span class="text-xs text-slate-500 font-normal hidden md:inline truncate">
+      Phố Xanh Coffee — Buôn Ma Thuột
     </span>
   </div>
 </div>
@@ -825,21 +1167,21 @@ animation: drawerSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 <!-- Right: Shift Info, Focus Mode & Live Clock -->
 <div class="flex items-center gap-2 sm:gap-3 shrink-0">
   <!-- Nút Chế độ tập trung (Ẩn thanh công cụ / Focus Mode) -->
-  <button id="btn-toggle-focus-mode" class="px-2.5 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-xs font-semibold flex items-center gap-1.5 border border-slate-200 text-slate-700 shadow-2xs transition cursor-pointer" title="Chế độ tập trung (Toàn màn hình & Ẩn thanh công cụ)">
+  <button id="btn-toggle-focus-mode" class="px-2.5 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 text-xs font-medium flex items-center gap-1.5 border border-slate-200 text-slate-700 transition cursor-pointer" title="Chế độ tập trung">
     <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-slate-600"></i>
-    <span class="hidden md:inline">Tập Trung</span>
+    <span class="hidden md:inline">Tập trung</span>
   </button>
 
   <!-- Ca làm việc -->
-  <button id="btn-shift-modal" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-xs font-bold flex items-center gap-1.5 border border-amber-300 text-amber-900 shadow-2xs transition cursor-pointer max-w-[100px] sm:max-w-none">
-    <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-700 shrink-0"></i>
+  <button id="btn-shift-modal" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-amber-50/80 hover:bg-amber-100/80 text-xs font-medium flex items-center gap-1.5 border border-amber-200 text-amber-900 transition cursor-pointer max-w-[100px] sm:max-w-none">
+    <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-800 shrink-0"></i>
     <span id="header-shift-name" class="truncate">Ca Sáng</span>
   </button>
 
   <!-- Live clock -->
   <div class="text-right hidden sm:block pl-2 border-l border-slate-200">
-    <span id="live-clock" class="text-xs font-mono font-bold text-slate-800 block leading-tight">00:00:00</span>
-    <span id="current-date" class="text-[9.5px] text-slate-400 block font-medium leading-tight">05/11/2026</span>
+    <span id="live-clock" class="text-xs font-mono font-medium text-slate-800 block leading-tight">00:00:00</span>
+    <span id="current-date" class="text-[11px] text-slate-400 block font-normal leading-tight">05/11/2026</span>
   </div>
 </div>
     </header>
@@ -859,13 +1201,13 @@ animation: drawerSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 <div id="tab-pane-pos" class="h-full flex flex-col min-h-0 overflow-hidden">
   
   <!-- SUB-NAV: THANH TAB TỪNG BÀN ĐANG PHỤC VỤ (CỐ ĐỊNH HOÀN TOÀN TRÊN ĐẦU, KHÔNG TRƯỢT THEO) -->
-  <div class="bg-white border-b border-slate-200/90 px-2 sm:px-4 py-1 flex items-center justify-between shadow-xs z-20 shrink-0 sticky top-0 min-h-[48px] sm:min-h-[52px] gap-2">
+  <div class="bg-[#12131a] border-b border-white/10 px-2 sm:px-4 py-1 flex items-center justify-between shadow-md z-20 shrink-0 sticky top-0 min-h-[48px] sm:min-h-[52px] gap-2">
     <div class="flex items-center space-x-2 sm:space-x-2.5 overflow-x-auto py-1.5 sm:py-2 px-1 min-h-[44px] sm:min-h-[48px] custom-scrollbar flex-1 min-w-0" id="pos-table-tabs-list" style="scrollbar-width: thin;">
       <!-- Dynamic table tabs rendered by JavaScript -->
     </div>
 
     <div class="flex items-center space-x-2 shrink-0">
-      <button id="btn-add-takeaway-tab" class="px-2.5 sm:px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-1.5 transition shadow-xs cursor-pointer shrink-0">
+      <button id="btn-add-takeaway-tab" class="px-3 sm:px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white text-xs font-bold flex items-center gap-1.5 transition shadow-lg cursor-pointer shrink-0 border border-emerald-400/30">
         <i data-lucide="plus" class="w-3.5 h-3.5"></i>
         <span class="hidden sm:inline">Mở Đơn Mang Đi</span><span class="sm:hidden">Mang Đi</span>
       </button>
@@ -881,16 +1223,16 @@ animation: drawerSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     <div id="view-floor-map" class="h-full flex flex-col p-3 sm:p-5 md:p-6 overflow-hidden bg-dongson-pattern">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-3 sm:mb-4 shrink-0">
         <div class="min-w-0">
-          <h2 class="text-xs sm:text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-amber-600 shadow-sm shrink-0"></span>
+          <h2 class="text-xs sm:text-sm font-extrabold text-white uppercase tracking-wider flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500 shadow-[0_0_8px_#f59e0b] shrink-0"></span>
             <span>SƠ ĐỒ BÀN & KHU VỰC PHỤC VỤ</span>
           </h2>
-          <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">Chạm vào bất kỳ bàn nào để <span class="font-bold text-amber-700">mở một Tab riêng</span> trực tiếp gọi món, tính tiền và in bill</p>
+          <p class="text-[11px] sm:text-xs text-zinc-400 mt-0.5">Chạm vào bất kỳ bàn nào để <span class="font-bold text-amber-400">mở một Tab riêng</span> trực tiếp gọi món, tính tiền và in bill</p>
         </div>
 
         <!-- Khu vực lọc tabs (Cố định, hỗ trợ cuộn ngang mượt mà trên mobile, không ép title dọc) -->
-        <div class="flex gap-1.5 bg-slate-200/70 p-1 rounded-xl border border-slate-200 overflow-x-auto max-w-full custom-scrollbar shrink-0" id="floor-area-filter-container" style="scrollbar-width: thin;">
-          <button class="floor-area-btn px-3 py-1 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-xs" data-area="all">Tất cả khu vực</button>
+        <div class="flex gap-1.5 bg-[#14151e] p-1 rounded-xl border border-white/5 overflow-x-auto max-w-full custom-scrollbar shrink-0" id="floor-area-filter-container" style="scrollbar-width: thin;">
+          <button class="floor-area-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-500 text-slate-950 shadow-xs" data-area="all">Tất cả khu vực</button>
         </div>
       </div>
 
@@ -926,58 +1268,58 @@ animation: drawerSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
       </div>
 
       <!-- KHU VỰC THỰC ĐƠN CHỌN MÓN CHO BÀN (CHIẾM TRỌN 100% CHIỀU RỘNG MÀN HÌNH) -->
-      <section id="pos-menu-section" class="flex-1 w-full flex flex-col p-3 sm:p-5 overflow-hidden bg-white min-h-0">
+      <section id="pos-menu-section" class="flex-1 w-full flex flex-col p-3 sm:p-5 overflow-hidden bg-[#0c0d12] min-h-0">
         <!-- Header thông tin bàn hiện tại (Cố định không trượt theo) -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 mb-2.5 sm:pb-3.5 sm:mb-3.5 border-b border-slate-100 shrink-0 gap-2">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 mb-2.5 sm:pb-3.5 sm:mb-3.5 border-b border-white/10 shrink-0 gap-2">
           <div class="flex items-center gap-2.5 min-w-0">
-            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700 font-bold text-base sm:text-lg shadow-xs shrink-0">
-              ☕
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center font-medium shrink-0">
+              <i data-lucide="coffee" class="w-4 h-4 text-amber-400"></i>
             </div>
             <div class="min-w-0">
-              <h3 id="current-tab-table-title" class="text-xs sm:text-sm font-extrabold text-slate-900 truncate">Bàn 01 (Tầng 1 - Máy Lạnh)</h3>
-              <p class="text-[10.5px] sm:text-[11px] text-slate-500 truncate">Giờ mở bàn: <span id="current-tab-table-time" class="font-mono font-bold text-slate-700">14:25</span> • Trạng thái: <span id="current-tab-table-status" class="font-bold text-emerald-600">Trống</span></p>
+              <h3 id="current-tab-table-title" class="text-xs sm:text-sm font-bold text-white truncate">Bàn 01 (Tầng 1)</h3>
+              <p class="text-[11px] text-zinc-400 truncate">Giờ mở: <span id="current-tab-table-time" class="font-mono text-zinc-300">14:25</span> • Trạng thái: <span id="current-tab-table-status" class="font-medium text-emerald-400">Trống</span></p>
             </div>
           </div>
 
-          <!-- Thao tác nhanh cho bàn (Hỗ trợ cuộn ngang mượt mà trên điện thoại) -->
+          <!-- Thao tác nhanh cho bàn -->
           <div class="flex items-center gap-1.5 overflow-x-auto max-w-full custom-scrollbar py-0.5 shrink-0" style="scrollbar-width: thin;">
-            <button id="btn-release-table" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center gap-1 border border-emerald-200 transition shadow-xs cursor-pointer shrink-0" title="Đóng bàn và chuyển về trạng thái Bàn Trống">
-              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i> <span class="hidden sm:inline">Đóng Bàn</span><span class="sm:hidden">Đóng Bàn</span>
+            <button id="btn-release-table" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 text-xs font-medium flex items-center gap-1 border border-emerald-500/20 transition cursor-pointer shrink-0" title="Đóng bàn">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400 shrink-0"></i> <span class="hidden sm:inline">Đóng Bàn</span><span class="sm:hidden">Đóng</span>
             </button>
-            <button id="btn-open-pos-cart" class="px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-extrabold flex items-center gap-1.5 transition shadow-xs cursor-pointer shrink-0" title="Mở chi tiết phiếu gọi món của bàn">
-              <i data-lucide="receipt" class="w-4 h-4 text-slate-950 shrink-0"></i>
+            <button id="btn-open-pos-cart" class="px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold flex items-center gap-1.5 transition cursor-pointer shrink-0 shadow-lg shadow-amber-950/40 border border-amber-400/20" title="Mở chi tiết phiếu gọi món">
+              <i data-lucide="receipt" class="w-3.5 h-3.5 text-amber-100 shrink-0"></i>
               <span>Phiếu Gọi Món</span>
-              <span id="header-cart-badge" class="px-1.5 py-0.2 rounded-full text-[10px] font-mono bg-slate-950 text-white font-bold leading-none">0</span>
-              <span id="header-cart-total" class="font-mono font-black text-slate-950 ml-1">0 đ</span>
+              <span id="header-cart-badge" class="px-1.5 py-0.2 rounded text-[10px] font-mono bg-white/20 text-white font-medium leading-none">0</span>
+              <span id="header-cart-total" class="font-mono font-bold text-white ml-1">0 đ</span>
             </button>
-            <button id="btn-transfer-table-modal" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-bold flex items-center gap-1 border border-slate-200 transition shadow-xs cursor-pointer shrink-0">
-              <i data-lucide="arrow-left-right" class="w-3.5 h-3.5 text-slate-500 shrink-0"></i> <span class="hidden sm:inline">Chuyển Bàn</span><span class="sm:hidden">Chuyển</span>
+            <button id="btn-transfer-table-modal" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-[#1c1d29] hover:bg-[#252636] text-zinc-300 text-xs font-medium flex items-center gap-1 border border-white/10 transition cursor-pointer shrink-0">
+              <i data-lucide="arrow-left-right" class="w-3.5 h-3.5 text-zinc-400 shrink-0"></i> <span class="hidden sm:inline">Chuyển Bàn</span><span class="sm:hidden">Chuyển</span>
             </button>
-            <button id="btn-merge-table-modal" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-700 text-xs font-bold flex items-center gap-1 border border-purple-200 transition shadow-xs cursor-pointer shrink-0" title="Ghép bàn này vào một bàn khác">
-              <i data-lucide="merge" class="w-3.5 h-3.5 text-purple-600 shrink-0"></i> <span class="hidden sm:inline">Ghép Bàn</span><span class="sm:hidden">Ghép</span>
+            <button id="btn-merge-table-modal" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-[#1c1d29] hover:bg-[#252636] text-zinc-300 text-xs font-medium flex items-center gap-1 border border-white/10 transition cursor-pointer shrink-0" title="Ghép bàn">
+              <i data-lucide="merge" class="w-3.5 h-3.5 text-zinc-400 shrink-0"></i> <span class="hidden sm:inline">Ghép Bàn</span><span class="sm:hidden">Ghép</span>
             </button>
-            <button id="btn-close-current-tab" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-600 text-xs font-bold flex items-center gap-1 border border-slate-200 transition shadow-xs cursor-pointer shrink-0" title="Ẩn tab bàn và quay lại sơ đồ quán">
-              <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-slate-500 shrink-0"></i> <span class="hidden sm:inline">Về Sơ Đồ</span><span class="sm:hidden">Sơ Đồ</span>
+            <button id="btn-close-current-tab" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-[#1c1d29] hover:bg-[#252636] text-zinc-400 hover:text-white text-xs font-medium flex items-center gap-1 border border-white/10 transition cursor-pointer shrink-0" title="Về sơ đồ quán">
+              <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-zinc-400 shrink-0"></i> <span class="hidden sm:inline">Về Sơ Đồ</span><span class="sm:hidden">Sơ Đồ</span>
             </button>
           </div>
         </div>
 
         <!-- Thanh tìm kiếm & Nhóm danh mục món (CỐ ĐỊNH HOÀN TOÀN Ở ĐẦU MENU, KHÔNG TRƯỢT THEO MÓN) -->
-        <div class="space-y-2 mb-2.5 sm:space-y-2.5 sm:mb-3.5 shrink-0 bg-white">
+        <div class="space-y-2 mb-2.5 sm:space-y-2.5 sm:mb-3.5 shrink-0 bg-[#0c0d12]">
           <!-- Hàng 1: Ô tìm kiếm món & Thao tác tùy chỉnh món ngoài menu / Xem lịch sử hủy -->
           <div class="flex items-center gap-2">
             <div class="relative flex-1">
-              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-2.5"></i>
-              <input type="text" id="menu-search-input" placeholder="Tìm nhanh cà phê phin, bạc xỉu, trà trái cây, đá xay, điểm tâm..." class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white transition shadow-xs">
+              <i data-lucide="search" class="w-4 h-4 text-zinc-400 absolute left-3.5 top-2.5"></i>
+              <input type="text" id="menu-search-input" placeholder="Tìm nhanh cà phê phin, bạc xỉu, trà trái cây, đá xay, điểm tâm..." class="w-full bg-[#161722] border border-white/10 rounded-xl pl-10 pr-4 py-2 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500 transition shadow-inner">
             </div>
-            <button id="btn-open-add-menu-item" class="px-2.5 sm:px-3 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition shrink-0 cursor-pointer" title="Thêm món mới vĩnh viễn vào thực đơn">
+            <button id="btn-open-add-menu-item" class="px-2.5 sm:px-3 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-md transition shrink-0 cursor-pointer border border-indigo-400/20" title="Thêm món mới vĩnh viễn vào thực đơn">
               <i data-lucide="utensils-crossed" class="w-3.5 h-3.5 shrink-0"></i> <span class="hidden sm:inline">+ Món Vào Menu</span><span class="sm:hidden">+ Menu</span>
             </button>
-            <button id="btn-open-custom-item" class="px-2.5 sm:px-3 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition shrink-0 cursor-pointer" title="Nhập tên và giá món chưa cập nhật vào app">
+            <button id="btn-open-custom-item" class="px-2.5 sm:px-3 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-md transition shrink-0 cursor-pointer border border-amber-400/20" title="Nhập tên và giá món chưa cập nhật vào app">
               <i data-lucide="plus-circle" class="w-3.5 h-3.5 shrink-0"></i> <span class="hidden sm:inline">+ Món Ngoài Menu</span><span class="sm:hidden">+ Ngoài</span>
             </button>
-            <button id="btn-view-cancel-history" class="px-2.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1.5 border border-slate-200 shadow-2xs transition shrink-0 cursor-pointer" title="Xem lịch sử hủy món & thay đổi">
-              <i data-lucide="history" class="w-3.5 h-3.5 text-slate-600 shrink-0"></i> <span class="hidden md:inline">Lịch Sử Hủy</span>
+            <button id="btn-view-cancel-history" class="px-2.5 py-2 rounded-xl bg-[#1c1d29] hover:bg-[#252636] text-zinc-300 text-xs font-semibold flex items-center gap-1.5 border border-white/10 shadow-xs transition shrink-0 cursor-pointer" title="Xem lịch sử hủy món & thay đổi">
+              <i data-lucide="history" class="w-3.5 h-3.5 text-zinc-400 shrink-0"></i> <span class="hidden md:inline">Lịch Sử Hủy</span>
             </button>
           </div>
           <!-- Hàng 2: Thanh Tab danh mục món cuộn ngang (Giữ nguyên vị trí cố định) -->
@@ -1023,93 +1365,93 @@ animation: drawerSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
       <!-- ========================================================================= -->
       <!-- MODAL: PHIẾU GỌI MÓN (CỬA SỔ BẬT GIỮA MÀN HÌNH THEO YÊU CẦU CỦA NGƯỜI DÙNG) -->
       <!-- ========================================================================= -->
-      <div id="modal-pos-cart" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs hidden z-50 flex items-center justify-center p-3 sm:p-5">
-        <div class="bg-white border border-slate-200 rounded-3xl max-w-xl w-full p-4 sm:p-6 shadow-2xl flex flex-col max-h-[92vh] animate-modal-pop">
+      <div id="modal-pos-cart" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden z-50 flex items-center justify-center p-3 sm:p-5">
+        <div class="bg-[#14151e] border border-white/10 rounded-3xl max-w-xl w-full p-4 sm:p-6 shadow-2xl flex flex-col max-h-[92vh] animate-modal-pop">
           <!-- Header modal -->
-          <div class="flex items-center justify-between pb-3 border-b border-slate-200 shrink-0">
+          <div class="flex items-center justify-between pb-3 border-b border-white/10 shrink-0">
             <div class="flex items-center gap-2.5">
-              <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
+              <div class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center font-bold">
                 <i data-lucide="receipt" class="w-5 h-5"></i>
               </div>
               <div>
-                <h4 class="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                <h4 class="text-sm font-extrabold text-white uppercase tracking-wider flex items-center gap-2">
                   <span>Phiếu Gọi Món</span>
-                  <span id="cart-modal-table-name" class="text-xs normal-case font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-lg border border-amber-200">Bàn 01</span>
+                  <span id="cart-modal-table-name" class="text-xs normal-case font-bold text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-lg border border-amber-500/20">Bàn 01</span>
                 </h4>
-                <span class="text-[11px] text-slate-500 font-mono" id="current-tab-order-code">HD_MOI</span>
+                <span class="text-[11px] text-zinc-400 font-mono" id="current-tab-order-code">HD_MOI</span>
               </div>
             </div>
             <div class="flex items-center gap-2">
-              <button id="btn-clear-tab-cart" class="text-xs text-slate-400 hover:text-rose-600 font-semibold flex items-center gap-1 transition cursor-pointer px-2 py-1 rounded-lg hover:bg-rose-50" title="Xóa toàn bộ món đang chọn">
+              <button id="btn-clear-tab-cart" class="text-xs text-zinc-400 hover:text-rose-400 font-semibold flex items-center gap-1 transition cursor-pointer px-2 py-1 rounded-lg hover:bg-rose-500/10" title="Xóa toàn bộ món đang chọn">
                 <i data-lucide="trash-2" class="w-3.5 h-3.5"></i> Xóa hết
               </button>
-              <button id="btn-close-pos-cart" onclick="window.closePosCartModal()" class="text-slate-400 hover:text-slate-700 p-1.5 rounded-xl hover:bg-slate-100 transition cursor-pointer" title="Đóng phiếu">
+              <button id="btn-close-pos-cart" onclick="window.closePosCartModal()" class="text-zinc-400 hover:text-white p-1.5 rounded-xl hover:bg-white/5 transition cursor-pointer" title="Đóng phiếu">
                 <i data-lucide="x" class="w-5 h-5"></i>
               </button>
             </div>
           </div>
 
           <!-- Tra cứu khách VIP tích điểm -->
-          <div class="py-2.5 border-b border-slate-200 shrink-0">
+          <div class="py-2.5 border-b border-white/10 shrink-0">
             <div class="flex gap-1.5">
-              <input type="text" id="cust-phone-input" placeholder="SĐT khách VIP (0988111222)..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500 font-mono shadow-xs">
-              <button id="btn-search-customer" class="px-3 py-1.5 bg-white hover:bg-slate-100 text-slate-700 rounded-xl text-xs font-bold border border-slate-300 transition shadow-xs cursor-pointer">
+              <input type="text" id="cust-phone-input" placeholder="SĐT khách VIP (0988111222)..." class="flex-1 bg-[#181924] border border-white/10 rounded-xl px-3 py-1.5 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500 font-mono shadow-inner">
+              <button id="btn-search-customer" class="px-3.5 py-1.5 bg-[#20212e] hover:bg-[#28293a] text-zinc-200 rounded-xl text-xs font-bold border border-white/10 transition shadow-xs cursor-pointer">
                 Tìm
               </button>
             </div>
-            <div id="customer-info-tag" class="hidden mt-2 p-2.5 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-between text-xs">
+            <div id="customer-info-tag" class="hidden mt-2 p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-between text-xs">
               <div>
-                <span id="cust-name-display" class="font-bold text-amber-900">Đặng Văn Hậu</span>
-                <span id="cust-tier-display" class="ml-1 text-[10px] px-1.5 py-0.2 rounded bg-amber-500 text-white font-bold font-mono">VIP (-15%)</span>
+                <span id="cust-name-display" class="font-bold text-amber-300">Đặng Văn Hậu</span>
+                <span id="cust-tier-display" class="ml-1 text-[10px] px-1.5 py-0.2 rounded bg-amber-500 text-slate-950 font-bold font-mono">VIP (-15%)</span>
               </div>
-              <span id="cust-points-display" class="text-[11px] text-amber-800 font-mono font-bold">1450 điểm</span>
+              <span id="cust-points-display" class="text-[11px] text-amber-400 font-mono font-bold">1450 điểm</span>
             </div>
           </div>
 
           <!-- Danh sách món đã chọn vào bàn này (Scrollable) -->
           <div class="flex-1 min-h-[160px] overflow-y-auto py-2.5 space-y-2 pr-1 custom-scrollbar" id="tab-cart-items-container">
-            <div class="text-center py-16 text-slate-400 text-xs">
+            <div class="text-center py-16 text-zinc-500 text-xs">
               <div class="text-3xl mb-2 opacity-40">☕</div>
               Bàn này chưa chọn món nào.<br>Chạm vào danh mục món bên ngoài để thêm món.
             </div>
           </div>
 
           <!-- Tổng kết tiền của bàn -->
-          <div class="shrink-0 pt-3 border-t border-slate-200 space-y-2 bg-slate-50 -mx-4 -mb-4 sm:-mx-6 sm:-mb-6 p-4 sm:p-5 rounded-b-3xl">
+          <div class="shrink-0 pt-3 border-t border-white/10 space-y-2 bg-[#0d0e14] -mx-4 -mb-4 sm:-mx-6 sm:-mb-6 p-4 sm:p-5 rounded-b-3xl">
             <div class="space-y-1 text-xs">
-              <div class="flex justify-between text-slate-600 font-medium">
+              <div class="flex justify-between text-zinc-400 font-medium">
                 <span>Tiền món:</span>
-                <span id="tab-cart-subtotal" class="font-mono font-bold text-slate-800">0 đ</span>
+                <span id="tab-cart-subtotal" class="font-mono font-bold text-zinc-200">0 đ</span>
               </div>
-              <div class="flex justify-between text-emerald-600 font-medium">
+              <div class="flex justify-between text-emerald-400 font-medium">
                 <span>Giảm giá VIP:</span>
                 <span id="tab-cart-discount" class="font-mono font-bold">-0 đ</span>
               </div>
-              <div class="flex justify-between text-sm font-extrabold text-slate-900 pt-1.5 border-t border-slate-200 items-baseline">
-                <span class="text-xs uppercase tracking-wider text-amber-800">CẦN THANH TOÁN:</span>
-                <span id="tab-cart-total" class="text-amber-700 font-black font-mono text-xl">0 đ</span>
+              <div class="flex justify-between text-sm font-extrabold text-white pt-1.5 border-t border-white/10 items-baseline">
+                <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">CẦN THANH TOÁN:</span>
+                <span id="tab-cart-total" class="text-amber-400 font-black font-mono text-xl">0 đ</span>
               </div>
             </div>
 
             <!-- Thanh nút hành động của bàn -->
             <div class="grid grid-cols-3 gap-2 pt-1">
-              <button id="btn-send-kds" class="py-2.5 px-2 rounded-xl bg-white hover:bg-slate-100 text-amber-800 border border-amber-300 font-bold text-[11px] flex flex-col items-center justify-center gap-1 shadow-xs transition cursor-pointer">
-                <i data-lucide="bell" class="w-4 h-4 text-amber-600"></i>
+              <button id="btn-send-kds" class="py-2.5 px-2 rounded-xl bg-[#1c1d29] hover:bg-[#252636] text-amber-300 border border-amber-500/30 font-bold text-[11px] flex flex-col items-center justify-center gap-1 shadow-md transition cursor-pointer">
+                <i data-lucide="bell" class="w-4 h-4 text-amber-400"></i>
                 <span>Gửi Bếp (KDS)</span>
               </button>
               
-              <button id="btn-quick-print-bill" class="py-2.5 px-2 rounded-xl bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-bold text-[11px] flex flex-col items-center justify-center gap-1 shadow-xs transition cursor-pointer">
-                <i data-lucide="printer" class="w-4 h-4 text-slate-600"></i>
+              <button id="btn-quick-print-bill" class="py-2.5 px-2 rounded-xl bg-[#1c1d29] hover:bg-[#252636] text-zinc-200 border border-white/10 font-bold text-[11px] flex flex-col items-center justify-center gap-1 shadow-md transition cursor-pointer">
+                <i data-lucide="printer" class="w-4 h-4 text-zinc-300"></i>
                 <span>In Tạm Tính</span>
               </button>
 
-              <button id="btn-open-payment" class="py-2.5 px-2 rounded-xl bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white font-extrabold text-[11px] flex flex-col items-center justify-center gap-1 shadow-md transition cursor-pointer">
+              <button id="btn-open-payment" class="py-2.5 px-2 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-extrabold text-[11px] flex flex-col items-center justify-center gap-1 shadow-lg shadow-amber-900/30 transition cursor-pointer border border-amber-400/30">
                 <i data-lucide="credit-card" class="w-4 h-4 text-white"></i>
                 <span>Tính Tiền</span>
               </button>
             </div>
 
-            <button id="btn-continue-ordering" onclick="window.closePosCartModal()" class="w-full py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs rounded-xl transition text-center cursor-pointer">
+            <button id="btn-continue-ordering" onclick="window.closePosCartModal()" class="w-full py-2 bg-[#1c1d29] hover:bg-[#252636] text-zinc-300 font-bold text-xs rounded-xl transition text-center cursor-pointer border border-white/5">
               ← Tiếp Tục Chọn Món (Đóng)
             </button>
           </div>
@@ -2172,24 +2514,43 @@ animation: drawerSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 <!-- ========================================================================= -->
 <!-- TAB 6: ESC/POS PRINTER & HARDWARE SIMULATOR (MÔ PHỎNG IN BILL & KÉT) -->
 <!-- ========================================================================= -->
-<div id="tab-pane-printer" class="h-full hidden flex flex-col p-3 sm:p-5 md:p-6 bg-slate-50 overflow-y-auto">
-  <div class="max-w-4xl mx-auto w-full space-y-4">
-    <div class="border-b border-slate-200 pb-3">
-      <h2 class="text-sm font-extrabold text-slate-900 uppercase tracking-wide">
-        MÔ PHỎNG MÁY IN NHIỆT ESC/POS (80MM) & NGĂN KÉO ĐỰNG TIỀN TỰ ĐỘNG
-      </h2>
-      <p class="text-xs text-slate-500">Chuẩn lệnh ESC/POS và xung điện kích mở ngăn kéo đựng tiền tự động</p>
+<div id="tab-pane-printer" class="h-full hidden flex flex-col p-4 sm:p-6 md:p-8 bg-[#0c0d12] overflow-y-auto custom-scrollbar">
+  <div class="max-w-5xl mx-auto w-full space-y-6">
+    <!-- Header Thông tin thiết bị phần cứng -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-white/10 gap-3">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-500 shadow-[0_0_8px_#f59e0b]"></span>
+          <h2 class="text-base sm:text-lg font-bold text-white tracking-wide uppercase font-sans">
+            MÁY IN NHIỆT ESC/POS (K80) & KÉT TIỀN THÔNG MINH
+          </h2>
+        </div>
+        <p class="text-xs text-zinc-400 mt-1">Trình mô phỏng phần cứng ESC/POS tiêu chuẩn F&B Roastery • Kích xung điện 24V tự động</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-xs">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> PORT: COM3 • 9600 BAUD • READY
+        </span>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <!-- Left: Thermal Paper Bill Preview -->
-      <div class="bg-white p-6 rounded-2xl border border-slate-200 flex flex-col items-center shadow-xs">
-        <span class="text-xs text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-1.5 font-bold">
-          <i data-lucide="printer" class="w-4 h-4 text-amber-600"></i> Hóa Đơn In Nhiệt Chuẩn K80 (80mm)
-        </span>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+      <!-- Cột Trái: Giả lập Cuộn Hóa Đơn In Nhiệt K80 Cao Cấp -->
+      <div class="bg-[#14151e] p-6 rounded-3xl border border-white/10 flex flex-col items-center shadow-2xl relative">
+        <div class="w-full flex items-center justify-between mb-4 pb-3 border-b border-white/5">
+          <span class="text-xs text-zinc-300 uppercase tracking-wider flex items-center gap-2 font-bold">
+            <i data-lucide="printer" class="w-4 h-4 text-amber-500"></i> Hóa Đơn In Nhiệt Chuẩn K80 (80mm)
+          </span>
+          <span class="px-2.5 py-1 rounded text-[10px] font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+            AUTO CUTTER: ON
+          </span>
+        </div>
 
-        <div class="receipt-paper w-80 p-5 rounded-lg text-xs leading-relaxed overflow-hidden">
-          <pre id="receipt-text-preview" class="whitespace-pre-wrap font-mono text-[11px]">
+        <!-- Khay cuốn giấy hóa đơn nhiệt thực tế (Realistic Thermal Paper) -->
+        <div class="w-full flex justify-center py-4 bg-[#0a0b0f] rounded-2xl border border-white/5 shadow-inner">
+          <div class="receipt-paper-roll w-80 max-w-full p-6 text-xs text-zinc-900 leading-relaxed relative filter drop-shadow-2xl">
+            <div class="receipt-tear-top"></div>
+            <pre id="receipt-text-preview" class="whitespace-pre-wrap font-mono text-[11px] leading-tight select-all">
          CÀ PHÊ PHỐ XANH                   
     123 Nguyễn Trãi, Q.1, TP. Hồ Chí Minh       
         Hotline: 0901.234.567             
@@ -2212,58 +2573,87 @@ Hình thức:     Tiền mặt
 ================================================
  CẢM ƠN QUÝ KHÁCH & HẸN GẶP LẠI!          
      Wifi Pass: phoxanh2026               
-          </pre>
+            </pre>
+            <div class="receipt-tear-bottom"></div>
+          </div>
         </div>
 
-        <!-- Print Trigger Buttons -->
-        <div class="flex gap-2.5 mt-4">
-          <button id="btn-physical-print" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow transition">
-            <i data-lucide="printer" class="w-3.5 h-3.5"></i> In Ra Giấy (Web Print)
+        <!-- Nút bấm thao tác in ấn -->
+        <div class="flex flex-wrap gap-3 mt-6 w-full justify-center">
+          <button id="btn-physical-print" class="flex-1 min-w-[150px] px-4 py-3 bg-[#20212e] hover:bg-[#28293a] text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 border border-white/10 shadow-lg transition active:scale-95 cursor-pointer">
+            <i data-lucide="printer" class="w-4 h-4 text-amber-400"></i> In Ra Giấy K80
           </button>
-          <button id="btn-test-drawer-kick" class="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow transition">
-            <i data-lucide="zap" class="w-3.5 h-3.5"></i> Kích Xung Mở Két Tiền
+          <button id="btn-test-drawer-kick" class="flex-1 min-w-[150px] px-4 py-3 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-lg shadow-amber-900/30 transition active:scale-95 cursor-pointer border border-amber-400/30">
+            <i data-lucide="zap" class="w-4 h-4"></i> Kích Mở Két Tiền
           </button>
         </div>
       </div>
 
-      <!-- Right: Hardware & Drawer Pulse Simulation -->
-      <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-4 shadow-xs">
-        <h3 class="text-xs font-bold text-slate-800 flex items-center gap-2 uppercase tracking-wider">
-          <i data-lucide="cpu" class="w-4 h-4 text-emerald-600"></i> Mô Phỏng Phần Cứng & Xung Điện ESC/POS
-        </h3>
+      <!-- Cột Phải: Phần Cứng Két Tiền & Luồng Lệnh ESC/POS Hex -->
+      <div class="space-y-6">
+        <!-- Card Két Tiền Mặt Thông Minh -->
+        <div class="bg-[#14151e] p-6 rounded-3xl border border-white/10 space-y-4 shadow-2xl">
+          <div class="flex items-center justify-between border-b border-white/5 pb-3">
+            <h3 class="text-xs font-bold text-white flex items-center gap-2 uppercase tracking-wider">
+              <i data-lucide="hard-drive" class="w-4 h-4 text-emerald-400"></i> Két Đựng Tiền Tự Động (RJ11 24V Pulse)
+            </h3>
+            <span id="drawer-status-msg" class="text-xs text-zinc-400 font-medium">Ngăn kéo đang ĐÓNG</span>
+          </div>
 
-        <!-- Drawer graphic representation -->
-        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center relative overflow-hidden">
-          <span class="text-xs text-slate-500">Ngăn kéo đựng tiền tự động (Cash Drawer)</span>
-          <div id="drawer-graphic" class="mt-3 p-4 bg-white border border-slate-300 rounded-lg shadow-sm transition-transform duration-300 flex items-center justify-around">
-            <div class="text-center">
-              <div class="w-12 h-6 bg-emerald-50 border border-emerald-500 rounded text-[10px] text-emerald-700 font-mono flex items-center justify-center font-bold">500K</div>
-              <span class="text-[9px] text-slate-400 font-mono">Ngăn 1</span>
+          <!-- Khay ngăn kéo tiền mặt kim loại -->
+          <div class="bg-[#0b0c10] p-5 rounded-2xl border border-white/5 relative overflow-hidden">
+            <div class="text-[11px] text-zinc-400 flex items-center justify-between mb-3">
+              <span>Khay phân chia tiền mặt VND</span>
+              <span class="font-mono text-emerald-400">RJ11 KICK PIN 2 & 5</span>
             </div>
-            <div class="text-center">
-              <div class="w-12 h-6 bg-emerald-50 border border-emerald-500 rounded text-[10px] text-emerald-700 font-mono flex items-center justify-center font-bold">200K</div>
-              <span class="text-[9px] text-slate-400 font-mono">Ngăn 2</span>
-            </div>
-            <div class="text-center">
-              <div class="w-12 h-6 bg-emerald-50 border border-emerald-500 rounded text-[10px] text-emerald-700 font-mono flex items-center justify-center font-bold">100K</div>
-              <span class="text-[9px] text-slate-400 font-mono">Ngăn 3</span>
-            </div>
-            <div class="text-center">
-              <div class="w-12 h-6 bg-emerald-50 border border-emerald-500 rounded text-[10px] text-emerald-700 font-mono flex items-center justify-center font-bold">50K</div>
-              <span class="text-[9px] text-slate-400 font-mono">Ngăn 4</span>
+            
+            <div id="drawer-graphic" class="p-4 bg-[#181924] border border-white/10 rounded-xl shadow-xl transition-all duration-300 flex items-center justify-around gap-2">
+              <div class="flex-1 py-3 px-2 bg-[#0f1017] border border-cyan-500/30 rounded-lg text-center shadow-inner">
+                <span class="block text-xs font-mono font-bold text-cyan-400">500K</span>
+                <span class="text-[9px] text-zinc-500 uppercase mt-0.5 block">Ngăn 1</span>
+              </div>
+              <div class="flex-1 py-3 px-2 bg-[#0f1017] border border-rose-500/30 rounded-lg text-center shadow-inner">
+                <span class="block text-xs font-mono font-bold text-rose-400">200K</span>
+                <span class="text-[9px] text-zinc-500 uppercase mt-0.5 block">Ngăn 2</span>
+              </div>
+              <div class="flex-1 py-3 px-2 bg-[#0f1017] border border-emerald-500/30 rounded-lg text-center shadow-inner">
+                <span class="block text-xs font-mono font-bold text-emerald-400">100K</span>
+                <span class="text-[9px] text-zinc-500 uppercase mt-0.5 block">Ngăn 3</span>
+              </div>
+              <div class="flex-1 py-3 px-2 bg-[#0f1017] border border-amber-500/30 rounded-lg text-center shadow-inner">
+                <span class="block text-xs font-mono font-bold text-amber-400">50K</span>
+                <span class="text-[9px] text-zinc-500 uppercase mt-0.5 block">Ngăn 4</span>
+              </div>
             </div>
           </div>
-          <p id="drawer-status-msg" class="text-xs text-slate-500 mt-2 font-medium">Ngăn kéo đang ĐÓNG (Chờ lệnh in)</p>
         </div>
 
-        <!-- ESC/POS Command Hex Spec -->
-        <div class="space-y-2 text-xs">
-          <span class="text-slate-700 font-bold uppercase tracking-wider text-[11px]">Mã Lệnh Điều Khiển ESC/POS Nhúng:</span>
-          <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 font-mono text-[11px] space-y-1 text-slate-700">
-            <p><span class="text-amber-700 font-bold">1B 40</span> : ESC @ (Khởi tạo máy in)</p>
-            <p><span class="text-emerald-700 font-bold">1B 70 00 19 FA</span> : ESC p 0 25 250 (Xung điện bung chốt mở két tiền mặt)</p>
-            <p><span class="text-sky-700 font-bold">1B 61 01</span> : ESC a 1 (Căn lề giữa tiêu đề hóa đơn)</p>
-            <p><span class="text-purple-700 font-bold">1D 56 42 00</span> : GS V B 0 (Tự động cắt giấy sau khi in bill)</p>
+        <!-- Luồng Lệnh ESC/POS Hex Spec Terminal -->
+        <div class="bg-[#14151e] p-6 rounded-3xl border border-white/10 space-y-3 shadow-2xl">
+          <div class="flex items-center justify-between border-b border-white/5 pb-2.5">
+            <span class="text-white font-bold uppercase tracking-wider text-xs flex items-center gap-2">
+              <i data-lucide="terminal" class="w-4 h-4 text-amber-400"></i> Luồng Lệnh Điều Khiển ESC/POS
+            </span>
+            <span class="text-[10px] font-mono text-zinc-500">HEX RAW STREAM</span>
+          </div>
+          
+          <div class="bg-[#0b0c10] p-4 rounded-xl border border-white/5 font-mono text-xs space-y-2 text-zinc-300">
+            <div class="flex items-center justify-between pb-1.5 border-b border-white/5">
+              <span><span class="text-amber-400 font-bold">1B 40</span> <span class="text-zinc-500">(ESC @)</span></span>
+              <span class="text-zinc-400 text-[11px]">Khởi tạo máy in nhiệt</span>
+            </div>
+            <div class="flex items-center justify-between pb-1.5 border-b border-white/5">
+              <span><span class="text-emerald-400 font-bold">1B 70 00 19 FA</span> <span class="text-zinc-500">(ESC p)</span></span>
+              <span class="text-emerald-400 text-[11px]">Bung chốt két 25ms</span>
+            </div>
+            <div class="flex items-center justify-between pb-1.5 border-b border-white/5">
+              <span><span class="text-sky-400 font-bold">1B 61 01</span> <span class="text-zinc-500">(ESC a 1)</span></span>
+              <span class="text-zinc-400 text-[11px]">Căn giữa tiêu đề</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span><span class="text-purple-400 font-bold">1D 56 42 00</span> <span class="text-zinc-500">(GS V B 0)</span></span>
+              <span class="text-zinc-400 text-[11px]">Cắt giấy hoàn tất</span>
+            </div>
           </div>
         </div>
       </div>
@@ -3690,9 +4080,9 @@ try {
   </div>
 
   <!-- Offline Database Helper -->
-  <script src="/db-offline.js?v=3.3.2"></script>
+  <script src="/db-offline.js?v=4.0.0-artisan"></script>
   <!-- Main Frontend Application Logic -->
-  <script src="/app.js?v=3.3.2"></script>
+  <script src="/app.js?v=4.0.0-artisan"></script>
 
   <script>
     if (window.lucide) {

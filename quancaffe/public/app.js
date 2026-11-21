@@ -729,8 +729,8 @@ function renderPosTableTabs() {
     const badge = cartCount > 0 ? `<span class="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full text-[10px] font-black bg-amber-500 text-white leading-none shadow-2xs">${cartCount}</span>` : '';
 
     let tabClass = isActive
-      ? 'pos-table-tab-active font-extrabold'
-      : 'border border-slate-200 bg-white/90 text-slate-700 hover:bg-slate-50 font-semibold';
+      ? 'pos-table-tab-active bg-[#252636] text-amber-300 border border-amber-500/50 shadow-[0_0_12px_rgba(245,158,11,0.15)] font-bold'
+      : 'border border-white/10 bg-[#161722] text-zinc-400 hover:bg-[#1d1e2b] hover:text-white font-medium';
 
     let iconHtml = isFloor 
       ? '<i data-lucide="layout-grid" class="w-3.5 h-3.5 text-amber-700"></i>' 
@@ -809,9 +809,9 @@ function renderFloorAreaFilters() {
   const container = document.getElementById('floor-area-filter-container');
   if (!container) return;
 
-  let html = `<button class="floor-area-btn px-3 py-1 rounded-lg text-xs font-bold ${selectedFloorArea === 'all' ? 'active-area-btn font-extrabold' : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80'}" data-area="all">Tất cả khu vực</button>`;
+  let html = `<button class="floor-area-btn px-3 py-1.5 rounded-xl text-xs font-semibold transition ${selectedFloorArea === 'all' ? 'active-area-btn bg-amber-500 text-slate-950 font-bold shadow-[0_0_12px_rgba(245,158,11,0.3)]' : 'bg-[#181924] text-zinc-400 hover:text-white hover:bg-[#202130] border border-white/5'}" data-area="all">Tất cả khu vực</button>`;
   AppState.areas.forEach(a => {
-    html += `<button class="floor-area-btn px-3 py-1 rounded-lg text-xs font-bold ${selectedFloorArea === a.MaKhuVuc ? 'active-area-btn font-extrabold' : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80'}" data-area="${a.MaKhuVuc}">${a.TenKhuVuc}</button>`;
+    html += `<button class="floor-area-btn px-3 py-1.5 rounded-xl text-xs font-semibold transition ${selectedFloorArea === a.MaKhuVuc ? 'active-area-btn bg-amber-500 text-slate-950 font-bold shadow-[0_0_12px_rgba(245,158,11,0.3)]' : 'bg-[#181924] text-zinc-400 hover:text-white hover:bg-[#202130] border border-white/5'}" data-area="${a.MaKhuVuc}">${a.TenKhuVuc}</button>`;
   });
   container.innerHTML = html;
 
@@ -838,17 +838,17 @@ function renderFloorTables() {
     // Kiểm tra bàn có đang mở tab không
     const isTabOpen = AppState.posTabs.some(t => t.tableId === tbl.MaBan);
 
-    let statusBorder = 'border-emerald-200 bg-emerald-50/50 text-emerald-800';
-    let statusDot = 'bg-emerald-500';
+    let statusBorder = 'border-white/10 bg-[#161722] text-zinc-300';
+    let statusDot = 'bg-emerald-400 shadow-[0_0_8px_#34d399]';
     let statusText = 'Trống';
 
     if (tbl.TrangThai === 'CoKhach') {
-      statusBorder = 'border-rose-200 bg-rose-50/50 text-rose-800';
-      statusDot = 'bg-rose-500';
-      statusText = 'Có khách';
+      statusBorder = 'border-amber-500/50 bg-[#1f1b14] text-amber-200 shadow-[0_0_15px_rgba(245,158,11,0.12)]';
+      statusDot = 'bg-amber-400 shadow-[0_0_8px_#f59e0b]';
+      statusText = 'Đang phục vụ';
     } else if (tbl.TrangThai === 'DatTruoc') {
-      statusBorder = 'border-sky-200 bg-sky-50/50 text-sky-800';
-      statusDot = 'bg-sky-500';
+      statusBorder = 'border-indigo-500/40 bg-[#171624] text-indigo-200 shadow-[0_0_15px_rgba(99,102,241,0.1)]';
+      statusDot = 'bg-indigo-400 shadow-[0_0_8px_#818cf8]';
       statusText = 'Đặt trước';
     }
 
@@ -860,30 +860,30 @@ function renderFloorTables() {
                     : (areaName || 'Khu Vực');
 
     html += `
-      <div class="floor-table-card hover-lift p-2.5 sm:p-3.5 rounded-2xl border-2 ${statusBorder} hover:border-amber-500 hover:shadow-md cursor-pointer transition flex flex-col justify-between min-h-[110px] sm:min-h-[120px] shadow-xs relative overflow-hidden" data-table-id="${tbl.MaBan}">
+      <div class="floor-table-card p-3 sm:p-3.5 rounded-xl border ${statusBorder} hover:border-amber-500/60 hover:shadow-lg cursor-pointer transition flex flex-col justify-between min-h-[115px] sm:min-h-[125px] relative overflow-hidden" data-table-id="${tbl.MaBan}">
         <!-- Hàng 1: Trạng thái & Nút Trả Trống Nhanh -->
         <div class="flex items-center justify-between gap-1">
           <div class="flex items-center gap-1.5 shrink-0">
-            <span class="w-2.5 h-2.5 rounded-full ${statusDot}"></span>
-            <span class="text-xs font-bold">${statusText}</span>
+            <span class="w-2 h-2 rounded-full ${statusDot}"></span>
+            <span class="text-xs font-medium">${statusText}</span>
           </div>
           ${tbl.TrangThai !== 'Trong' ? `
-            <button class="btn-floor-release-table p-1 rounded-lg bg-white/90 hover:bg-emerald-600 hover:text-white text-slate-400 hover:border-emerald-300 border border-slate-200 transition shadow-2xs cursor-pointer shrink-0" data-release-id="${tbl.MaBan}" data-release-name="${tbl.TenBan}" title="Đóng bàn (Trả về Bàn Trống)">
+            <button class="btn-floor-release-table p-1 rounded-md bg-[#222330] hover:bg-emerald-600 hover:text-white text-zinc-400 border border-white/10 transition cursor-pointer shrink-0" data-release-id="${tbl.MaBan}" data-release-name="${tbl.TenBan}" title="Đóng bàn (Trả về Bàn Trống)">
               <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
             </button>
           ` : ''}
         </div>
 
-        <!-- Hàng 2: Tên bàn & Huy hiệu Đang Mở Tab (Tách riêng hàng, không bị chật chội) -->
-        <div class="my-1 flex items-center justify-between gap-1.5">
-          <h3 class="font-extrabold text-sm text-slate-900 tracking-tight leading-snug truncate">${tbl.TenBan}</h3>
-          ${isTabOpen ? '<span class="px-2 py-0.5 rounded-full text-[9px] font-bold bg-amber-600 text-white shadow-xs shrink-0">Đang Mở</span>' : ''}
+        <!-- Hàng 2: Tên bàn & Huy hiệu Đang Mở Tab -->
+        <div class="my-1.5 flex items-center justify-between gap-1.5">
+          <h3 class="font-bold text-sm text-white tracking-tight leading-snug truncate">${tbl.TenBan}</h3>
+          ${isTabOpen ? '<span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-amber-500 text-slate-950 shrink-0 shadow-xs">Đang Mở</span>' : ''}
         </div>
 
         <!-- Hàng 3: Khu vực & Số ghế -->
-        <div class="flex items-center justify-between text-[11px] text-slate-500 pt-1.5 border-t border-slate-200/60 font-medium">
+        <div class="flex items-center justify-between text-[11px] text-zinc-400 pt-1.5 border-t border-white/5 font-normal">
           <span class="truncate">${shortArea}</span>
-          <span class="font-bold font-mono text-slate-700">${tbl.SoGhe} ghế</span>
+          <span class="font-mono text-zinc-300">${tbl.SoGhe} chỗ</span>
         </div>
       </div>
     `;
@@ -949,8 +949,8 @@ function renderMenuItems() {
     return matchCat && matchSearch;
   });
 
-  // Fallback SVG nếu hình ảnh từ internet không tải được
-  const fallbackSvg = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150' fill='%23fef3c7'><rect width='200' height='150' fill='%23fef3c7'/><circle cx='100' cy='65' r='32' fill='%23d97706'/><text x='100' y='75' font-size='26' fill='%23ffffff' text-anchor='middle'>☕</text><text x='100' y='125' font-size='12' fill='%2392400e' font-weight='bold' text-anchor='middle'>PHỐ XANH</text></svg>`;
+  // Fallback SVG thanh lịch với biểu tượng cốc cà phê vector chuẩn thiết kế
+  const fallbackSvg = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150' fill='%23f8fafc'><rect width='200' height='150' fill='%23f8fafc'/><circle cx='100' cy='65' r='28' fill='%23f1f5f9' stroke='%23e2e8f0' stroke-width='1.5'/><path d='M88 68h24v4a12 12 0 0 1-24 0v-4z M112 70h3a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3h-3' stroke='%2392400e' stroke-width='2' fill='none' stroke-linecap='round'/><text x='100' y='118' font-size='11' font-family='sans-serif' fill='%2364748b' text-anchor='middle'>Phố Xanh Coffee</text></svg>`;
 
   let html = '';
   const canManageMenu = AppState.currentRole === 'ChuQuan' || AppState.currentRole === 'QuanLy';
@@ -958,29 +958,28 @@ function renderMenuItems() {
   filtered.forEach(item => {
     const isAvailable = item.is_available !== false && item.DangKinhDoanh !== 0;
     const cardClass = isAvailable
-      ? 'menu-item-card group hover-lift bg-white hover:border-amber-400 border border-slate-200 rounded-2xl p-3 flex flex-col justify-between cursor-pointer transition shadow-xs relative'
-      : 'menu-item-card group bg-slate-100/90 border border-slate-300 rounded-2xl p-3 flex flex-col justify-between transition shadow-xs relative opacity-60 grayscale select-none cursor-not-allowed';
+      ? 'menu-item-card group bg-[#181923] hover:border-amber-500/50 border border-white/10 rounded-2xl p-3 flex flex-col justify-between cursor-pointer transition shadow-sm relative'
+      : 'menu-item-card group bg-[#14151d] border border-white/5 rounded-2xl p-3 flex flex-col justify-between transition relative opacity-50 grayscale select-none cursor-not-allowed';
 
     html += `
       <div class="${cardClass}" data-item-id="${item.MaMon}" data-available="${isAvailable}">
-        <!-- Ảnh món chất lượng cao (High-Res Food Photo với Fallback an toàn) -->
-        <div class="relative w-full h-32 rounded-xl overflow-hidden mb-2.5 bg-slate-100 border border-slate-100">
-          <img src="${item.HinhAnh}" alt="${item.TenMon}" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 ${isAvailable ? 'group-hover:scale-105' : ''}" onerror="this.onerror=null; this.src='${fallbackSvg}';">
-          <span class="absolute top-2 right-2 px-2 py-0.5 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-xs text-amber-800 shadow-xs border border-white/40 z-20">${item.DonViTinh}</span>
+        <!-- Ảnh món tỉ lệ chuẩn (Figma / Square POS Style) -->
+        <div class="relative w-full h-32 rounded-xl overflow-hidden mb-2.5 bg-[#12131a] border border-white/5">
+          <img src="${item.HinhAnh}" alt="${item.TenMon}" loading="lazy" class="w-full h-full object-cover transition-transform duration-200 ${isAvailable ? 'group-hover:scale-105' : ''}" onerror="this.onerror=null; this.src='${fallbackSvg}';">
+          <span class="absolute top-2 right-2 px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-slate-950/80 text-amber-300 backdrop-blur-xs z-20 border border-white/10">${item.DonViTinh}</span>
 
-          <!-- Nhãn báo tạm hết món (86'd Items) -->
+          <!-- Nhãn báo tạm hết món -->
           ${!isAvailable ? `
-            <div class="absolute inset-0 bg-slate-900/65 backdrop-blur-[1px] flex flex-col items-center justify-center text-white z-10 p-2 text-center">
-              <span class="px-2.5 py-1 rounded-lg bg-rose-600 text-white font-extrabold text-[11px] shadow-sm tracking-wide flex items-center gap-1">
-                🚫 TẠM HẾT
+            <div class="absolute inset-0 bg-slate-950/75 backdrop-blur-[2px] flex flex-col items-center justify-center text-white z-10 p-2 text-center">
+              <span class="px-2.5 py-1 rounded bg-rose-600/90 text-white font-bold text-[11px] tracking-wide border border-rose-500/50">
+                Bếp tạm hết
               </span>
-              <span class="text-[9.5px] text-slate-200 mt-0.5 font-medium">Bếp ngưng nhận món</span>
             </div>
           ` : ''}
 
           ${canManageMenu ? `
-            <button type="button" class="btn-edit-dish absolute top-2 left-2 px-1.5 py-0.5 rounded-lg bg-white/90 hover:bg-white text-slate-700 text-[10px] font-bold shadow-xs border border-slate-200 transition opacity-0 group-hover:opacity-100 flex items-center gap-1 cursor-pointer z-20" data-id="${item.MaMon}" title="Sửa thông tin hoặc ảnh món">
-              ✏️ Sửa
+            <button type="button" class="btn-edit-dish absolute top-2 left-2 px-1.5 py-0.5 rounded bg-[#222332]/90 hover:bg-[#2d2e40] text-zinc-300 text-[10px] font-medium border border-white/10 transition opacity-0 group-hover:opacity-100 flex items-center gap-1 cursor-pointer z-20" data-id="${item.MaMon}" title="Sửa thông tin">
+              Sửa
             </button>
           ` : ''}
         </div>
@@ -988,16 +987,16 @@ function renderMenuItems() {
         <div class="flex-1 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-1 flex-wrap">
-              <h4 class="font-bold text-xs text-slate-900 ${isAvailable ? 'group-hover:text-amber-800' : 'text-slate-500'} transition line-clamp-1 leading-snug">${item.TenMon}</h4>
-              ${!isAvailable ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-extrabold bg-rose-100 text-rose-700">Tạm hết</span>` : ''}
+              <h4 class="font-semibold text-xs text-white ${isAvailable ? 'group-hover:text-amber-400' : 'text-zinc-500'} transition line-clamp-1 leading-snug">${item.TenMon}</h4>
+              ${!isAvailable ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-medium bg-rose-950/80 text-rose-300 border border-rose-800">Hết</span>` : ''}
             </div>
           </div>
-          <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between">
-            <span class="font-black text-xs text-amber-700 font-mono">${Number(item.GiaBanHienHanh).toLocaleString('vi-VN')} đ</span>
+          <div class="mt-2.5 pt-2 border-t border-white/5 flex items-center justify-between">
+            <span class="font-bold text-xs text-amber-400 font-mono tracking-tight">${Number(item.GiaBanHienHanh).toLocaleString('vi-VN')} đ</span>
             ${isAvailable ? `
-              <button class="w-6 h-6 rounded-lg bg-amber-600 hover:bg-amber-500 active:scale-90 text-white flex items-center justify-center text-xs font-bold shadow-xs transition cursor-pointer">+</button>
+              <button class="w-7 h-7 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-bold transition shadow-xs cursor-pointer" title="Thêm vào order">+</button>
             ` : `
-              <button class="w-6 h-6 rounded-lg bg-slate-300 text-slate-500 cursor-not-allowed text-xs font-bold" disabled title="Món này đang tạm hết">✕</button>
+              <button class="w-7 h-7 rounded-lg bg-zinc-800 text-zinc-500 cursor-not-allowed text-xs font-bold" disabled title="Món tạm hết">✕</button>
             `}
           </div>
         </div>
@@ -1908,29 +1907,29 @@ function renderKdsTickets() {
     const ticketTime = ticket.created_at || ticket.thoiGianGuiBep || ticket.ThoiGianGuiBepRound || ticket.NgayGioLap;
     const isAddOn = Boolean(ticket.isAddOn || (ticket.lanGoi && ticket.lanGoi > 1));
     const addOnBadgeHtml = isAddOn
-      ? `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-black bg-rose-600 text-white shadow-xs animate-pulse">🛎️ GỌI THÊM (ĐỢT ${ticket.lanGoi})</span>`
+      ? `<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-medium bg-rose-600 text-white">Thêm đợt ${ticket.lanGoi}</span>`
       : '';
 
     let itemsHtml = '';
     (ticket.items || []).forEach(it => {
       let statusBtn = '';
       if (it.TrangThaiPhaChe === 'ChoLam') {
-        statusBtn = `<button type="button" class="kds-status-btn px-2.5 py-1.5 rounded-lg text-xs font-bold bg-amber-50 text-amber-800 border border-amber-300 hover:bg-amber-600 hover:text-white transition-colors cursor-pointer shadow-2xs" data-id="${it.MaChiTiet}" data-next="DangLam" title="Bấm để chuyển sang Đang làm">⏳ Chờ làm</button>`;
+        statusBtn = `<button type="button" class="kds-status-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 hover:bg-amber-500/30 transition cursor-pointer" data-id="${it.MaChiTiet}" data-next="DangLam" title="Bấm để chuyển sang Đang pha">Chờ pha</button>`;
       } else if (it.TrangThaiPhaChe === 'DangLam') {
-        statusBtn = `<button type="button" class="kds-status-btn px-2.5 py-1.5 rounded-lg text-xs font-bold bg-sky-50 text-sky-800 border border-sky-300 hover:bg-sky-600 hover:text-white transition-colors cursor-pointer shadow-2xs" data-id="${it.MaChiTiet}" data-next="HoanThanh" title="Bấm để hoàn tất món này">🔄 Đang làm</button>`;
+        statusBtn = `<button type="button" class="kds-status-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30 hover:bg-sky-500/30 transition cursor-pointer" data-id="${it.MaChiTiet}" data-next="HoanThanh" title="Bấm để hoàn tất món">Đang pha</button>`;
       } else {
-        statusBtn = `<span class="px-2.5 py-1.5 rounded-lg text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-300 inline-block shadow-2xs">✅ Đã xong</span>`;
+        statusBtn = `<span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 inline-block">Đã xong</span>`;
       }
 
       itemsHtml += `
-        <div class="p-2.5 rounded-xl bg-slate-50/90 border border-slate-200/80 flex items-center justify-between gap-2 transition-colors">
+        <div class="p-2.5 rounded-xl bg-[#1a1b27] border border-white/5 flex items-center justify-between gap-2 transition-colors">
           <div class="min-w-0 flex-1">
             <div class="flex items-center gap-1.5">
-              <span class="w-6 h-6 rounded-md bg-amber-600 text-white font-mono font-black flex items-center justify-center text-xs shadow-xs shrink-0">${it.SoLuong}</span>
-              <span class="font-bold text-xs text-slate-900 truncate">${it.TenMon}</span>
-              <button type="button" class="btn-quick-86 px-1.5 py-0.5 rounded text-[10px] text-slate-400 hover:text-rose-600 hover:bg-rose-50 border border-transparent hover:border-rose-200 transition font-semibold cursor-pointer shrink-0" data-dish-id="${it.MaMon}" data-dish-name="${it.TenMon}" title="Báo tạm hết món này (86)">🚫 Hết</button>
+              <span class="w-5 h-5 rounded bg-amber-500 text-slate-950 font-mono font-bold flex items-center justify-center text-xs shrink-0">${it.SoLuong}</span>
+              <span class="font-semibold text-xs text-zinc-100 truncate">${it.TenMon}</span>
+              <button type="button" class="btn-quick-86 px-1.5 py-0.5 rounded text-[10px] text-zinc-400 hover:text-rose-400 hover:bg-rose-500/20 border border-transparent transition font-medium cursor-pointer shrink-0" data-dish-id="${it.MaMon}" data-dish-name="${it.TenMon}" title="Báo tạm hết món này (86)">Hết</button>
             </div>
-            ${it.GhiChuTopping ? `<span class="text-[11px] text-amber-700 block ml-8 italic truncate">📝 ${it.GhiChuTopping}</span>` : ''}
+            ${it.GhiChuTopping ? `<span class="text-[11px] text-amber-400 block ml-6 font-normal truncate">${it.GhiChuTopping}</span>` : ''}
           </div>
           <div class="shrink-0">${statusBtn}</div>
         </div>
@@ -1938,37 +1937,37 @@ function renderKdsTickets() {
     });
 
     html += `
-      <div class="kds-card min-w-[340px] max-w-[340px] bg-white border border-slate-200/90 hover:border-amber-400 rounded-2xl p-4 flex flex-col justify-between shadow-xs transition-all duration-300 relative overflow-hidden select-none"
+      <div class="kds-card min-w-[340px] max-w-[340px] bg-[#14151e] border border-white/10 hover:border-amber-500/40 rounded-2xl p-4 flex flex-col justify-between shadow-2xl transition relative overflow-hidden select-none"
            id="kds-card-${ticket.ticketId}"
            data-ticket-id="${ticket.ticketId}"
            data-created-at="${ticketTime}">
-        <div class="kds-card-bar absolute top-0 left-0 right-0 h-1.5 transition-colors duration-300 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600"></div>
+        <div class="kds-card-bar absolute top-0 left-0 right-0 h-1 transition-colors duration-300 bg-amber-500"></div>
         <div>
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2.5 mb-3 pt-1 gap-2">
+          <div class="flex items-center justify-between border-b border-white/5 pb-2 mb-2.5 pt-0.5 gap-2">
             <div class="min-w-0 flex-1">
               <div class="flex items-center gap-1.5 flex-wrap">
-                <span class="text-xs font-mono font-bold text-amber-700">${ticket.ticketId || ticket.SoHoaDon}</span>
+                <span class="text-xs font-mono font-bold text-amber-400">${ticket.ticketId || ticket.SoHoaDon}</span>
                 ${addOnBadgeHtml}
               </div>
-              <h3 class="text-sm font-extrabold text-slate-900 truncate">${ticket.TenBan || 'Đơn Mang Đi'}</h3>
+              <h3 class="text-sm font-bold text-white truncate">${ticket.TenBan || 'Đơn Mang Đi'}</h3>
             </div>
-            <!-- SLA Timer: Hiển thị mm:ss, đổi màu vàng >5p, đỏ >10p -->
+            <!-- SLA Timer: Hiển thị mm:ss -->
             <div class="kds-sla-container shrink-0 text-right">
-              <span class="kds-sla-badge inline-flex items-center gap-1 font-mono font-semibold text-xs px-2 py-0.5 rounded-lg border transition-all duration-300 bg-slate-100 text-slate-700 border-slate-200 shadow-2xs">
-                ⏱️ 00:00
+              <span class="kds-sla-badge inline-flex items-center gap-1 font-mono text-xs px-2.5 py-0.5 rounded-lg border transition-all duration-300 bg-[#0d0e14] text-amber-400 border-white/10 font-bold">
+                00:00
               </span>
             </div>
           </div>
-          <div class="space-y-2">
+          <div class="space-y-1.5">
             ${itemsHtml}
           </div>
         </div>
-        <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between gap-2">
-          <div class="text-[11px] text-slate-500">
-            <span>Kênh: <strong class="text-slate-700">${ticket.KenhDatHang}</strong></span>
-            <span class="font-mono text-slate-400 block">${new Date(ticketTime).toLocaleTimeString('vi-VN')}</span>
+        <div class="mt-3 pt-2.5 border-t border-white/5 flex items-center justify-between gap-2">
+          <div class="text-[11px] text-zinc-400">
+            <span>Kênh: <strong class="text-zinc-200">${ticket.KenhDatHang}</strong></span>
+            <span class="font-mono text-zinc-500 block">${new Date(ticketTime).toLocaleTimeString('vi-VN')}</span>
           </div>
-          <button class="kds-complete-all-btn px-2.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs transition cursor-pointer flex items-center gap-1 shrink-0" data-order-id="${ticket.SoHoaDon || ticket.MaHoaDon}" data-lan-goi="${ticket.lanGoi || 1}" title="Hoàn tất toàn bộ các món trong phiếu này">
+          <button class="kds-complete-all-btn px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white text-xs font-bold shadow-lg transition cursor-pointer flex items-center gap-1.5 shrink-0" data-order-id="${ticket.SoHoaDon || ticket.MaHoaDon}" data-lan-goi="${ticket.lanGoi || 1}" title="Hoàn tất toàn bộ các món trong phiếu này">
             <i data-lucide="check-check" class="w-3.5 h-3.5"></i> Hoàn Tất Đơn
           </button>
         </div>
